@@ -23,6 +23,33 @@ textarea {
   margin-bottom: 10px;
 }
 
+/* buttons and navigation */
+.btn-primary{
+  background-color: lightgreen !important;
+  border-color:rgb(0,0,0) !important;
+  color:black !important;
+}
+.btn-primary:hover{
+  background-color: green !important;
+  border-color:rgb(0,0,0) !important;
+  color:white !important;
+}
+.nav-entry{
+  font-weight: bold !important;
+  color:white !important;
+}
+
+.nav-entry:hover{
+  font-weight: bold !important;
+  color:black !important;
+}
+
+.nav-item:hover{
+  border-radius: 24px;
+  background-color: white !important;
+}
+
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -34,3 +61,4 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+

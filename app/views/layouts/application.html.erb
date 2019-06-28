@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    Start tracking your carbon footprint for free today and explore 
+    new sustainable alternatives to your daily commute!
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,15 +13,15 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "pet or pass", root_path, id: "logo" %>
+      <%= link_to image_tag("logo.png",size:"500x75") , root_path, id: "logo" , :class=>'banner'%>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",  root_path %></li>
+            <li class="nav-item"><%= link_to "Home",  root_path , :class=>"nav-entry"%></li>
             <% if logged_in? %>
-              <li><%= link_to "My Cars", cars_path %></li> 
-              <li><%= link_to "Log out", logout_path, method: :delete %></li>
+              <li class="nav-item"><%= link_to "My Cars", cars_path , :class=>"nav-entry"%></li> 
+              <li class="nav-item"><%= link_to "Log out", logout_path, method: :delete , :class=>"nav-entry"%></li>
             <% else %>  
-              <li><%= link_to "Log in", login_path %></li>
+              <li class="nav-item"><%= link_to "Log in", login_path, :class=>"nav-entry" %></li>
             <% end %>  
           </ul>
         </nav>
