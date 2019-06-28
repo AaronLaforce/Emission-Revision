@@ -7124,3 +7124,722 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 335ms (Views: 330.3ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "make" varchar, "model" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "make" varchar DEFAULT NULL, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","make","year","user_id","created_at","updated_at")
+                     SELECT "id","make","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "make" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "model" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "user_id" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" datetime NOT NULL[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:13
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "make" varchar DEFAULT NULL, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","make","year","user_id","created_at","updated_at")
+                     SELECT "id","make","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","updated_at")
+                     SELECT "id","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","updated_at")
+                     SELECT "id","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id")
+                     SELECT "id" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "make" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "model" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "user_id" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" datetime NOT NULL[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "make" varchar DEFAULT NULL, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","make","year","user_id","created_at","updated_at")
+                     SELECT "id","make","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","updated_at")
+                     SELECT "id","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","updated_at")
+                     SELECT "id","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id")
+                     SELECT "id" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "make" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "model" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "user_id" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" datetime NOT NULL[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "make" varchar DEFAULT NULL, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","make","year","user_id","created_at","updated_at")
+                     SELECT "id","make","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "make" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "model" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "user_id" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" datetime NOT NULL[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:14
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "make" varchar DEFAULT NULL, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","make","year","user_id","created_at","updated_at")
+                     SELECT "id","make","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "make" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "model" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "user_id" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" datetime NOT NULL[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "make" varchar DEFAULT NULL, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","make","year","user_id","created_at","updated_at")
+                     SELECT "id","make","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","user_id","created_at","updated_at")
+                     SELECT "id","year","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","user_id","created_at","updated_at")
+                     SELECT "id","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "year" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "make" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "model" varchar[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "user_id" integer[0m
+  ↳ db/migrate/20190628193955_add_new_entry.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190628193955"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (98.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to RemoveTimestampsFromCar (20190628201051)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","created_at","updated_at","year","make","model","user_id")
+                     SELECT "id","created_at","updated_at","year","make","model","user_id" FROM "cars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "updated_at" datetime NOT NULL, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","updated_at","year","make","model","user_id")
+                     SELECT "id","updated_at","year","make","model","user_id" FROM "acars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "updated_at" datetime NOT NULL, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","updated_at","year","make","model","user_id")
+                     SELECT "id","updated_at","year","make","model","user_id" FROM "cars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","make","model","user_id")
+                     SELECT "id","year","make","model","user_id" FROM "acars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ db/migrate/20190628201051_remove_timestamps_from_car.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190628201051"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (194.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddTimestampsToCar (20190628201136)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" varchar[0m
+  ↳ db/migrate/20190628201136_add_timestamps_to_car.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "updated_at" varchar[0m
+  ↳ db/migrate/20190628201136_add_timestamps_to_car.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190628201136"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (188.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddTimestampsToCar (20190628201136)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" varchar DEFAULT NULL, "updated_at" varchar DEFAULT NULL)[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","make","model","user_id","created_at","updated_at")
+                     SELECT "id","year","make","model","user_id","created_at","updated_at" FROM "cars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" varchar DEFAULT NULL)[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","make","model","user_id","created_at")
+                     SELECT "id","year","make","model","user_id","created_at" FROM "acars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" varchar DEFAULT NULL)[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acars" ("id","year","make","model","user_id","created_at")
+                     SELECT "id","year","make","model","user_id","created_at" FROM "cars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer NOT NULL PRIMARY KEY, "year" integer DEFAULT NULL, "make" varchar DEFAULT NULL, "model" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL)[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cars" ("id","year","make","model","user_id")
+                     SELECT "id","year","make","model","user_id" FROM "acars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acars"[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190628201136"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (197.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to FixEntrysCar (20190628201546)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" datetime NOT NULL[0m
+  ↳ db/migrate/20190628201546_fix_entrys_car.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to RemoveTimestampsFromCar (20190628201051)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cars" ADD "updated_at" varchar[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "cars" ADD "created_at" varchar[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190628201051"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (80.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddNewEntry (20190628193955)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to RemoveTimestampsFromCar (20190628201051)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to DropCar (20190628203040)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190628203040"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (105.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to RemoveCarTable (20190628203754)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cars"[0m
+  ↳ db/migrate/20190628203754_remove_car_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190628203754"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (203.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateCarsRevised (20190628203856)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190628203856_create_cars_revised.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "make" varchar, "model" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190628203856_create_cars_revised.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190628203856"]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (91.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
