@@ -1,0 +1,16 @@
+<h1>Add a new car</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@car, url: new_car_path) do |f| %>
+
+      <%= f.label :make %>
+      <%= f.text_field :make, class: 'form-control' %>
+
+      <%= f.label :year %>
+      <%= f.text_field :year, class: 'form-control' %>
+
+      <%= f.submit "create car", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
