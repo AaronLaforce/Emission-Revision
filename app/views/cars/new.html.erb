@@ -1,4 +1,4 @@
-<!-- Test -->
+
 <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
 <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
 <script type="text/javascript">
@@ -33,7 +33,6 @@ function()
  
 });
 </script>
-<!-- end test-->
 <meta http-equiv="refresh">
 <title>Add a New Car</title>
 <div class="spacer">
@@ -50,7 +49,7 @@ end of test-->
       <%= form_for(@car, url: new_car_path) do |f| %>
         <div class="field">
           <%= f.label :year %>
-          <%= f.select :year,{},{},  {name: "car-years",id: "car-years" } %>
+          <%= f.select :year,{},{}, {name: "year",id: "car-years" } %>
         </div>
         <!-- DO NOT DELETE:
         <div class="field">
@@ -60,13 +59,13 @@ end of test-->
         -->
         <div class="field">
           <%= f.label :make %>
-          <%= f.select :make,{}, {},{name:"car-makes", id: "car-makes"}  %>
+          <%= f.select :make,{}, {},{name:"make", id: "car-makes"}  %>
           <!-- DO NOT DELETE: <%= select_tag(:make, options_for_select([["Honda","Honda"],["Acura","Acura"]]), {prompt: "Select Make",:class=>'form-control'})%>-->
           <!-- DO NOT DELETE: kept for legacy purposes <%= f.text_field :make, class: 'form-control' %>-->
         </div>
         <div class="field">
           <%= f.label :model %>
-          <%= f.select :model,{}, {}, {name:"car-models" ,id: "car-models" } %>
+          <%= f.select :model,{}, {}, {name:"model" ,id: "car-models" } %>
           <!--<%= select_tag(:model, options_for_select([["Civic","Civic"],["Accord","Accord"]]), {prompt: "Select Model",:class=>'form-control'})%>   -->
         </div>
 
