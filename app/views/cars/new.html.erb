@@ -1,22 +1,73 @@
+<!-- Test -->
+<script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+<script type="text/javascript">
+$(document).ready(
+function()
+{
+     //Create a variable for the CarQuery object.  You can call it whatever you like.
+     var carquery = new CarQuery();
+
+     //Run the carquery init function to get things started:
+     carquery.init();
+     
+     //Optionally, you can pre-select a vehicle by passing year / make / model / trim to the init function:
+     //carquery.init('2000', 'dodge', 'Viper', 11636);
+
+     //Optional: Pass sold_in_us:true to the setFilters method to show only US models. 
+     carquery.setFilters( {sold_in_us:true} );
+
+     //Optional: initialize the year, make, model, and trim drop downs by providing their element IDs
+     carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
+
+     //Optional: set the onclick event for a button to show car data.
+     $('#cq-show-data').click(  function(){ carquery.populateCarData('car-model-data'); } );
+
+     //Optional: initialize the make, model, trim lists by providing their element IDs.
+     carquery.initMakeModelTrimList('make-list', 'model-list', 'trim-list', 'trim-data-list');
+
+     //Optional: set minimum and/or maximum year options.
+     //carquery.year_select_min=1990;
+     //carquery.year_select_max=1999;
+ 
+ 
+});
+</script>
+<!-- end test-->
+<meta http-equiv="refresh">
 <title>Add a New Car</title>
 <div class="spacer">
   <h1>Add a New Car</h1>
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+    <!--test 
+    <select name="car-years" id="car-years"></select>  
+<select name="car-makes" id="car-makes"></select> 
+<select name="car-models" id="car-models"></select>
+<select name="car-model-trims" id="car-model-trims"></select> 
+end of test-->
       <%= form_for(@car, url: new_car_path) do |f| %>
+        <div class="field">
+          <%= f.label :year %>
+          <%= f.select :year,{},{},  {name: "car-years",id: "car-years" } %>
+        </div>
+        <!-- DO NOT DELETE:
         <div class="field">
           <%= f.label :year %>
           <%= select_tag(:year, options_for_select((1990..2019).to_a.reverse), {prompt: "Select Year",:class=>'form-control'}) %>
         </div>
+        -->
         <div class="field">
           <%= f.label :make %>
-          <%= select_tag(:make, options_for_select([["Honda","Honda"],["Acura","Acura"]]), {prompt: "Select Make",:class=>'form-control'})%>
+          <%= f.select :make,{}, {},{name:"car-makes", id: "car-makes"}  %>
+          <!-- DO NOT DELETE: <%= select_tag(:make, options_for_select([["Honda","Honda"],["Acura","Acura"]]), {prompt: "Select Make",:class=>'form-control'})%>-->
           <!-- DO NOT DELETE: kept for legacy purposes <%= f.text_field :make, class: 'form-control' %>-->
         </div>
         <div class="field">
           <%= f.label :model %>
-          <%= select_tag(:model, options_for_select([["Civic","Civic"],["Accord","Accord"]]), {prompt: "Select Model",:class=>'form-control'})%>   
+          <%= f.select :model,{}, {}, {name:"car-models" ,id: "car-models" } %>
+          <!--<%= select_tag(:model, options_for_select([["Civic","Civic"],["Accord","Accord"]]), {prompt: "Select Model",:class=>'form-control'})%>   -->
         </div>
 
         <div class="actions">
