@@ -1,19 +1,28 @@
-<h1>Add a new car</h1>
+<title>Add a New Car</title>
+<div class="spacer">
+  <h1>Add a New Car</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@car, url: new_car_path) do |f| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@car, url: new_car_path) do |f| %>
+        <div class="field">
+          <%= f.label :year %>
+          <%= select_tag(:year, options_for_select((1990..2019).to_a.reverse), {prompt: "Select Year",:class=>'form-control'}) %>
+        </div>
+        <div class="field">
+          <%= f.label :make %>
+          <%= select_tag(:make, options_for_select([["Honda","Honda"],["Acura","Acura"]]), {prompt: "Select Make",:class=>'form-control'})%>
+          <!-- DO NOT DELETE: kept for legacy purposes <%= f.text_field :make, class: 'form-control' %>-->
+        </div>
+        <div class="field">
+          <%= f.label :model %>
+          <%= select_tag(:model, options_for_select([["Civic","Civic"],["Accord","Accord"]]), {prompt: "Select Model",:class=>'form-control'})%>   
+        </div>
 
-      <%= f.label :year %>
-      <%= f.text_field :year, class: 'form-control' %>
-      
-      <%= f.label :make %>
-      <%= f.text_field :make, class: 'form-control' %>
-
-      <%= f.label :model %>
-      <%= f.text_field :model, class: 'form-control'%>    
-
-      <%= f.submit "create car", class: "btn btn-primary" %>
-    <% end %>
+        <div class="actions">
+          <%= f.submit "Add Car", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
