@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+### to be deleted if works js works
 $(document).ready ->
   #Create a variable for the CarQuery object.  You can call it whatever you like.
   window.carquery = new CarQuery
@@ -18,3 +19,4 @@ $(document).ready ->
   #Optional: initialize the make, model, trim lists by providing their element IDs.
   window.carquery.initMakeModelTrimList 'make-list', 'model-list', 'trim-list', 'trim-data-list'
   return
+  ###

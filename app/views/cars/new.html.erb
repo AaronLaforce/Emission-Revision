@@ -35,18 +35,21 @@
       <%= form_for(@car, url: new_car_path) do |f| %>
         <div class="field">
           <%= f.label :year %>
-          <%= f.select :year,{},{}, {name: "year",id: "car-years" } %>
+          <%= f.select :year,{},{}, {name: "year",id: "car-years" ,:class=>'form-control'} %>
         </div>
         <div class="field">
           <%= f.label :make %>
-          <%= f.select :make,{}, {},{name:"make", id: "car-makes"}  %>
+          <%= f.select :make,{}, {},{name:"make", id: "car-makes",:class=>'form-control'}  %>
           <!-- DO NOT DELETE: kept for legacy purposes <%= f.text_field :make, class: 'form-control' %>-->
         </div>
         <div class="field">
           <%= f.label :model %>
-          <%= f.select :model,{}, {}, {name:"model" ,id: "car-models" } %>
+          <%= f.select :model,{}, {}, {name:"model" ,id: "car-models",:class=>'form-control' } %>
         </div>
-
+        <div class="field">
+          <%= f.label :trim %>
+          <%= f.select :trim,{}, {}, {name:"trim" ,id: "car-model-trims" ,:class=>'form-control'} %>
+        </div>
         <div class="actions">
           <%= f.submit "Add Car", class: "btn btn-primary" %>
         </div>
