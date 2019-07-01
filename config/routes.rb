@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/new_car', to: 'cars#new'
   post '/new_car', to: 'cars#create'
   get '/cars', to: 'cars#index'
-  get '/new_fuel_log', to: 'fuel_logs#new'
-  post '/new_fuel_log', to: 'fuel_logs#create'
+  get '/new_fuel_log/:id', to: 'fuel_logs#new'
+  post '/new_fuel_log/:id', to: 'fuel_logs#create'
   get '/fuel_logs',to: 'fuel_logs#index'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

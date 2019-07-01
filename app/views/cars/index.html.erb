@@ -21,6 +21,7 @@
             <td><%= car.make %></td>
             <td><%= car.model %></td>
             <td><%= car.trim %></td>
+            <td><%= link_to "New Fuel Log", '/new_fuel_log/' + car.id.to_s, class: "btn-primary"  %></td>
         <% end %>    
       </tr>
     <% end %>

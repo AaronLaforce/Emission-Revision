@@ -6,6 +6,7 @@
       <th>Gas Price (Price per Litre)</th>
       <th>Price Paid</th>
       <th>Mileage at Fill Up (km)</th>
+      <th>Car Make</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,11 +14,12 @@
   <tbody>
     <% @fuel_logs.each do |fuel_log| %>
       <tr>
-        <% if fuel_log.car_id = current_car.id %>
+        <% if fuel_log.user_id = current_user.id %>
             <td><%= fuel_log.fueltype %></td>
             <td><%= fuel_log.gasprice %></td>
             <td><%= fuel_log.price %></td>
             <td><%= fuel_log.mileage %></td>
+            <td><%= Car.where(id: fuel_log.car_id).pluck(:make).to_s %></td>
         <% end %>    
       </tr>
     <% end %>
