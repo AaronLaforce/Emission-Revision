@@ -1,5 +1,5 @@
 class FuelLog < ApplicationRecord
-    belongs_to :car
+    belongs_to :user
     validates :fueltype, presence: true 
     validates :gasprice, presence: true 
     validates :price, presence: true

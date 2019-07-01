@@ -1,11 +1,11 @@
-class FuelLogController < ApplicationController
+class FuelLogsController < ApplicationController
     def new
         @fuel_log= FuelLog.new(params[:id])
       end
     
       def create
         @fuel_log = FuelLog.new(user_params) 
-        @fuel_log.car_id = current_car.id
+        @fuel_log.user_id = current_user.id
         if @fuel_log.save
           flash[:success] = "Successfully added new fuel log!"
           redirect_to root_path
@@ -15,11 +15,11 @@ class FuelLogController < ApplicationController
       end
     
       def index
-        @fuel_logs= FuelLog.where(car_id: current_car.id)
+        @fuel_logs= FuelLog.where(user_id: current_user.id)
       end
     
       private
         def user_params
-          params.permit(:fueltype,:gasprice,:price,:mileage,:car_id)
+          params.permit(:fueltype,:gasprice,:price,:mileage,:user_id)
         end
 end
