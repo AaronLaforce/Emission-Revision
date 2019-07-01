@@ -1,0 +1,2 @@
+module FuelLogHelper
+end

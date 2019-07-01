@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_021233) do
+ActiveRecord::Schema.define(version: 2019_07_01_032838) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2019_07_01_021233) do
     t.string "model"
     t.string "trim"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fuel_logs", force: :cascade do |t|
+    t.integer "fueltype"
+    t.string "gasprice"
+    t.string "price"
+    t.string "mileage"
+    t.integer "car_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

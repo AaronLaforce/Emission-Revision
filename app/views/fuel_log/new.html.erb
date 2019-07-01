@@ -1,0 +1,30 @@
+<title>Add a New Fuel Log</title>
+<div class="spacer">
+  <h1>Add a New Fuel Log</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@fuel_log, url: new_fuel_log_path) do |f| %>
+        <div class="field">
+          <%= f.label :fueltype %>
+          <%= f.select :fueltype,options_for_select( ["Diesel", "Regular","Premium","Other"],"Regular"),:class=>'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :gasprice %>
+          <%= f.text_field :gasprice, class: 'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :price %>
+          <%= f.text_field :price, class: 'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :mileage %>
+          <%= f.text_field :mileage, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
