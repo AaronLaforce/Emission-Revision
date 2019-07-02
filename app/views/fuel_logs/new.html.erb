@@ -5,21 +5,28 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(@fuel_log, url: '/new_fuel_log/' + @car.id.to_s) do |f| %>
-
+        <div class="field">
           <%= f.label :fueltype %>
           <%= f.select :fueltype, options_for_select( ["Diesel", "Regular","Premium","Other"]) %>
-
+        </div>
+        <div class="field">
           <%= f.label :gasprice %>
           <%= f.text_field :gasprice %>
-
+        </div>
+        <div class="field">
           <%= f.label :price %>
           <%= f.text_field :price %>
-
+        </div>
+        <div class="field">
           <%= f.label :mileage %>
           <%= f.text_field :mileage %>
-
+        </div>
+        <div class="field">
+          <%= f.label :car_id%>
+          <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, id: @car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+        </div>
           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
-
+      
       <% end %>
     </div>
   </div>

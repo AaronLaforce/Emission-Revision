@@ -15228,3 +15228,622 @@ Migrating to ChangeFuelTypeToString (20190702000049)
   ↳ bin/rails:4
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:4
+Started GET "/" for 127.0.0.1 at 2019-07-01 17:49:19 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 5007ms (Views: 5000.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-07-01 17:49:27 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (121.9ms)
+Completed 200 OK in 343ms (Views: 151.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-07-01 17:49:40 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CFcG8rFL48rwoA1qN8YVTLHhGYkE5vd7mjop9lJYYxerjgUAilORiIrRM9LCCbQylj0veuVrGxXHDC+uEaruHA==", "user"=>{"name"=>"tester", "email"=>"tester@tester.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "tester@tester.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "tester"], ["email", "tester@tester.com"], ["created_at", "2019-07-02 00:49:40.477675"], ["updated_at", "2019-07-02 00:49:40.477675"], ["password_digest", "$2a$10$ft7SmbZAJP/WCXv61ec2uObd0L62Gjy8W0Qd2LodfFrlfpc1VVo7O"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (101.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 174ms (ActiveRecord: 101.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2019-07-01 17:49:40 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 17:49:40 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-01 17:49:42 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (37.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 270ms (Views: 64.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-01 17:49:46 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/cars/index.html.erb:17
+  Rendered cars/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-01 17:49:48 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mFuelLog Load (0.1ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:15
+  Rendered fuel_logs/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 29.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 17:49:49 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-01 17:49:50 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/new_car" for 127.0.0.1 at 2019-07-01 17:50:07 -0700
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0RcbgASnRbsN4WqJ5Ze694pIl3C2x+6R1UzfC1ZNvLpSJv/I9vnQhU7hm8bYauLQZZtIDEtIeu7PnEi4ng2o7g==", "year"=>"2019", "make"=>"mazda", "model"=>"Mazda3", "trim"=>"74957", "commit"=>"Add Car"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[36mCar Create (0.3ms)[0m  [1m[32mINSERT INTO "cars" ("year", "make", "model", "trim", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["year", 2019], ["make", "mazda"], ["model", "Mazda3"], ["trim", "74957"], ["user_id", 2], ["created_at", "2019-07-02 00:50:07.375891"], ["updated_at", "2019-07-02 00:50:07.375891"]]
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[35m (106.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 178ms (ActiveRecord: 106.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 17:50:07 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-01 17:50:11 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-01 17:50:17 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/new_car" for 127.0.0.1 at 2019-07-01 17:50:27 -0700
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9LFdB2GFxEFUN0V1VoamiGaTPm1HhXVpR005rhcJ8PFeOWZ+1wnOMh7lcxCSuIJDcqIhNU1LEuX/98/8hYRe/w==", "year"=>"2019", "make"=>"subaru", "model"=>"BRZ", "trim"=>"74669", "commit"=>"Add Car"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[36mCar Create (0.3ms)[0m  [1m[32mINSERT INTO "cars" ("year", "make", "model", "trim", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["year", 2019], ["make", "subaru"], ["model", "BRZ"], ["trim", "74669"], ["user_id", 2], ["created_at", "2019-07-02 00:50:27.585413"], ["updated_at", "2019-07-02 00:50:27.585413"]]
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[35m (192.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 199ms (ActiveRecord: 192.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 17:50:27 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 33ms (Views: 32.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-01 17:50:30 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mFuelLog Load (0.1ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:15
+  Rendered fuel_logs/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 17:50:34 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-01 17:50:35 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mFuelLog Load (0.1ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:15
+  Rendered fuel_logs/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 48ms (Views: 45.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-01 17:50:37 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/cars/index.html.erb:17
+  Rendered cars/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 36ms (Views: 33.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 17:51:55 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 41ms (Views: 28.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 17:52:50 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:00:06 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/medea/Documents/sfu/cmpt276/current/Emission-Revision/app/views/fuel_logs/new.html.erb:26: syntax error, unexpected ':', expecting ')'
+...append=( f.text_field :car_id :class=>'form-control',:disabl...
+...                              ^
+/home/medea/Documents/sfu/cmpt276/current/Emission-Revision/app/views/fuel_logs/new.html.erb:26: syntax error, unexpected ',', expecting ')'
+...:car_id :class=>'form-control',:disabled=>true );@output_buf...
+...                              ^):
+  
+app/views/fuel_logs/new.html.erb:26: syntax error, unexpected ':', expecting ')'
+app/views/fuel_logs/new.html.erb:26: syntax error, unexpected ',', expecting ')'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:00:28 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 37ms (Views: 34.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:01:12 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:01:30 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 1..2)):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,"can you see this",:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832672266900'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832672266900'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:04:56 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."car_id" = ?[0m  [["car_id", 5]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: cars.car_id: SELECT "cars"."make" FROM "cars" WHERE "cars"."car_id" = ?):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,:value=>Car.where(car_id: @car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832677090600'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832677090600'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:05:57 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  Rendered fuel_logs/new.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (Unsupported argument type: car_id (Symbol)):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,:value=>Car.where(:car_id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832663812480'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832663812480'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:07:46 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:08:56 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."car_id" = ?[0m  [["user_id", 2], ["car_id", 5]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: cars.car_id: SELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."car_id" = ?):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, car_id: @car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832675471900'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832675471900'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:10:27 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered fuel_logs/new.html.erb within layouts/application (201.4ms)
+Completed 500 Internal Server Error in 205ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `car' for #<#<Class:0x00007f065eea64e0>:0x00007f065d815988>
+Did you mean?  @car):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, car_id: car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832657647460'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832657647460'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:10:41 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."car_id" = ?[0m  [["user_id", 2], ["car_id", 5]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: cars.car_id: SELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."car_id" = ?):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, car_id: @car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832674321480'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832674321480'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:13:12 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."car_id" = ?[0m  [["user_id", 2], ["car_id", 5]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: cars.car_id: SELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."car_id" = ?):
+    23:         </div>
+    24:         <div class="field">
+    25:           <%= f.label :car_id%>
+    26:           <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, car_id: @car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+    27:         </div>
+    28:           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
+    29:       
+  
+app/views/fuel_logs/new.html.erb:26:in `block in _app_views_fuel_logs_new_html_erb__3973163400777702176_69832673003280'
+app/views/fuel_logs/new.html.erb:7:in `_app_views_fuel_logs_new_html_erb__3973163400777702176_69832673003280'
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:13:30 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 2], ["id", 5]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:14:14 -0700
+Processing by FuelLogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V1WReHUOZ6hZGkWi8mJuaoCUDOQo3ulThbBpsKhyI2T93aoBw4Jt2xPIc8c2XEqhlKUTvCIQjt89Cp/iOv+Nag==", "fuel_log"=>{"fueltype"=>"Regular", "gasprice"=>"123", "price"=>"123", "mileage"=>"123", "car_id"=>"mazda"}, "commit"=>"Add Fuel Log", "id"=>"5"}
+Unpermitted parameter: :car_id
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mFuelLog Create (0.3ms)[0m  [1m[32mINSERT INTO "fuel_logs" ("fueltype", "gasprice", "price", "mileage", "user_id", "created_at", "updated_at", "car_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["fueltype", "Regular"], ["gasprice", "123"], ["price", "123"], ["mileage", "123"], ["user_id", 2], ["created_at", "2019-07-02 01:14:14.943113"], ["updated_at", "2019-07-02 01:14:14.943113"], ["car_id", 5]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[35m (145.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+Redirected to http://localhost:3000/
+Completed 302 Found in 156ms (ActiveRecord: 146.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 18:14:15 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-01 18:14:17 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mFuelLog Load (0.2ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 5]]
+  ↳ app/views/fuel_logs/index.html.erb:22
+  Rendered fuel_logs/index.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    19:             <td><%= fuel_log.gasprice %></td>
+    20:             <td><%= fuel_log.price %></td>
+    21:             <td><%= fuel_log.mileage %></td>
+    22:             <td><%= fuel_log.car_id Car.where(id: fuel_log.car_id).pluck(:make).join %></td>
+    23:         <% end %>    
+    24:       </tr>
+    25:     <% end %>
+  
+app/views/fuel_logs/index.html.erb:22:in `block in _app_views_fuel_logs_index_html_erb__4438560775353051303_69832672134580'
+app/views/fuel_logs/index.html.erb:15:in `_app_views_fuel_logs_index_html_erb__4438560775353051303_69832672134580'
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-01 18:14:29 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mFuelLog Load (0.2ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 5]]
+  ↳ app/views/fuel_logs/index.html.erb:22
+  Rendered fuel_logs/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 33ms (Views: 29.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-01 18:14:57 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/cars/index.html.erb:17
+  Rendered cars/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:14:59 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 2], ["id", 5]]
+  ↳ app/views/fuel_logs/new.html.erb:26
+  Rendered fuel_logs/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/new_fuel_log/5" for 127.0.0.1 at 2019-07-01 18:15:08 -0700
+Processing by FuelLogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xXyTEC1MplrqjiGWaKFrUujTnSV9md1+53zX1v3gRfvyX2mfh8bcjPTzh97rxoQu5D4xvVO4PFyVmBN9IVrmvQ==", "fuel_log"=>{"fueltype"=>"Regular", "gasprice"=>"321", "price"=>"321", "mileage"=>"321", "car_id"=>"mazda"}, "commit"=>"Add Fuel Log", "id"=>"5"}
+Unpermitted parameter: :car_id
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mFuelLog Create (0.2ms)[0m  [1m[32mINSERT INTO "fuel_logs" ("fueltype", "gasprice", "price", "mileage", "user_id", "created_at", "updated_at", "car_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["fueltype", "Regular"], ["gasprice", "321"], ["price", "321"], ["mileage", "321"], ["user_id", 2], ["created_at", "2019-07-02 01:15:08.872124"], ["updated_at", "2019-07-02 01:15:08.872124"], ["car_id", 5]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[35m (163.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+Redirected to http://localhost:3000/
+Completed 302 Found in 170ms (ActiveRecord: 163.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-01 18:15:09 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-01 18:15:10 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mFuelLog Load (0.2ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 5]]
+  ↳ app/views/fuel_logs/index.html.erb:22
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 5]]
+  ↳ app/views/fuel_logs/index.html.erb:22
+  Rendered fuel_logs/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 0.6ms)
+
+
