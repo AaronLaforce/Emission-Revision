@@ -19,7 +19,7 @@
             <td><%= fuel_log.gasprice %></td>
             <td><%= fuel_log.price %></td>
             <td><%= fuel_log.mileage %></td>
-            <td><%= Car.where(id: fuel_log.car_id).pluck(:make).to_s %></td>
+            <td><%= Car.where(id: fuel_log.car_id).pluck(:make).join %></td>
         <% end %>    
       </tr>
     <% end %>

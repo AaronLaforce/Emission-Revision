@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_230427) do
+ActiveRecord::Schema.define(version: 2019_07_02_000049) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_01_230427) do
   end
 
   create_table "fuel_logs", force: :cascade do |t|
-    t.integer "fueltype"
+    t.string "fueltype"
     t.string "gasprice"
     t.string "price"
     t.string "mileage"

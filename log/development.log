@@ -15195,3 +15195,36 @@ Migrating to AddCaridToFuelLogs (20190701230427)
   ↳ bin/rails:4
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to ChangeFuelTypeToString (20190702000049)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afuel_logs" ("id" integer NOT NULL PRIMARY KEY, "fueltype" integer DEFAULT NULL, "gasprice" varchar DEFAULT NULL, "price" varchar DEFAULT NULL, "mileage" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "car_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "afuel_logs" ("id","fueltype","gasprice","price","mileage","user_id","created_at","updated_at","car_id")
+                     SELECT "id","fueltype","gasprice","price","mileage","user_id","created_at","updated_at","car_id" FROM "fuel_logs"[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "fuel_logs"[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "fuel_logs" ("id" integer NOT NULL PRIMARY KEY, "fueltype" varchar DEFAULT NULL, "gasprice" varchar DEFAULT NULL, "price" varchar DEFAULT NULL, "mileage" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "car_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "fuel_logs" ("id","fueltype","gasprice","price","mileage","user_id","created_at","updated_at","car_id")
+                     SELECT "id","fueltype","gasprice","price","mileage","user_id","created_at","updated_at","car_id" FROM "afuel_logs"[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "afuel_logs"[0m
+  ↳ db/migrate/20190702000049_change_fuel_type_to_string.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190702000049"]]
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
