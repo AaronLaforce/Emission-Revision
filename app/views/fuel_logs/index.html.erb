@@ -1,14 +1,18 @@
 <title>My Fuel Logs</title>
 <table class="spacer">
   <thead>
-    <tr>
-      <th>Fuel Type</th>
-      <th>Gas Price (Price per Litre)</th>
-      <th>Price Paid</th>
-      <th>Mileage at Fill Up (km)</th>
-      <th>Car Make</th>
-      <th colspan="3"></th>
-    </tr>
+    <% @fuel_logs.each do |fuel_log| %>
+      <tr>
+        <% if fuel_log.user_id = current_user.id %>
+          <th>Fuel Type</th>
+          <th>Gas Price (Price per Litre)</th>
+          <th>Price Paid</th>
+          <th>Mileage at Fill Up (km)</th>
+          <th>Car Make</th>
+          <th colspan="3"></th>
+        <% end %>
+      </tr>
+    <% end %>
   </thead>
 
   <tbody>
@@ -25,3 +29,7 @@
     <% end %>
   </tbody>
 </table>
+
+  <h2> If you don't see any fuel logs, please add a car first!
+  <a class="btn btn-lg btn-primary" href="/new_car" target="_self">Add a New Car!</a>
+  </h2>

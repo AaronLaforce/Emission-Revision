@@ -7,7 +7,7 @@
     new sustainable alternatives to your daily commute!
   </h2>
   <% if logged_in? %>
-      <%= link_to "Add a New Car!", new_car_path, class: "btn btn-lg btn-primary" %>
+      <a class="btn btn-lg btn-primary" href="/new_car" target="_self">Add a New Car!</a>
   <% else %>  
     <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
   <% end %>  
