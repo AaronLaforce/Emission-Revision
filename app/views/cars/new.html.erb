@@ -1,10 +1,10 @@
 <head>
+ <meta name="turbolinks-visit-control" content="reload">
   <!-- script for CarQueryAPI-->
-  <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
-  <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
-  <script>
-    $(document).ready(
-      function(){
+  <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js" data-turbolinks-track="reload"></script>
+  <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js" data-turbolinks-track="reload"></script>
+  <script data-turbolinks-track="reload">
+    document.addEventListener("turbolinks:load", function(){
       //Create a variable for the CarQuery object.  You can call it whatever you like.
       var carquery = new CarQuery();
 
@@ -16,6 +16,9 @@
 
       //Optional: initialize the year, make, model, and trim drop downs by providing their element IDs
       carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
+
+      //Optional: set the onclick event for a button to show car data.
+      $('#cq-show-data').click(  function(){ carquery.populateCarData('car-model-data'); } );
 
       //Optional: initialize the make, model, trim lists by providing their element IDs.
       carquery.initMakeModelTrimList('make-list', 'model-list', 'trim-list', 'trim-data-list');
