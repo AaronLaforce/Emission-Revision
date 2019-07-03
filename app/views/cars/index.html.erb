@@ -4,17 +4,13 @@
 <title>My Cars</title>
 <table class="spacer">
   <thead>
-    <% @cars.each do |car| %>
       <tr>
-        <% if car.user_id = current_user.id %>
-          <th>Year</th>
-          <th>Make</th>
-          <th>Model</th>
-          <th>Trim</th>
-          <th colspan="3"></th>
-        <% end %>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Trim</th>
+        <th colspan="3"></th>
       </tr>
-      <% end %>
   </thead>
 
   <tbody>
