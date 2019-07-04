@@ -7,23 +7,6 @@ Promote eco friendly events and options,
 Track public transit usage (potentially connect to compass card).
 
 
-Pet or Pass is a social media app that uses machine learning to show users pictures of dogs catered to their taste.The user creates an account and enters information regarding their preference of dog (size, colour, breed, etc). The app will present photos of dogs in a similar style to Tinder, where the user swipes right to “pet” the dog, meaning they like that style of dog, and left to pass, meaning the do not like that style of dog. These decisions are passed to the server where it uses a neural net to better determine which dogs to show the user in the future. The app will allow for collaboration with the local animal shelter and will show the user dogs that are up for adoption that are similar to those they have said they liked.
-
-Features include:
-Finding local dogs up for adoption,
-Donating to local animal shelters,
-Talking to others that share similar tastes in dogs,
-Paid users can save pictures of dogs they like to an album.
-
-
-The Land Far Away is an online application that allows users to track and book flights to multiple destinations. It is easy to use and does not necessarily require users to create a profile either. One must simply access the site, enter their current location, destination and all the stops, the duration of their visit and hit search. The program will find the fastest/cheapest/most environmentally economical flights based on the user’s criteria.
-
-Features include:
-Multiple stop bookings, 
-Economic impact display,
-Sorting flights based on criteria such as shortest stopovers,
-Cheapest flights,
-Check-in baggage cost.
 
 
 	
