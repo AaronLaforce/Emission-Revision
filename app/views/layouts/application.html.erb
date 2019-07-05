@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    Start tracking your carbon footprint for free today and explore 
-    new sustainable alternatives to your daily commute!
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="icon" href="https://pics.clipartpng.com/midle/Green_Leaf_Earth_PNG_Clipart-2978.png">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -28,6 +26,7 @@
         </nav>
       </div>
     </header>
+    <div class="mini-spacer"></div>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
