@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 #for pasword hashing
 gem 'bcrypt',         '3.1.12'
