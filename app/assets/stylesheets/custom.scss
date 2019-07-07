@@ -25,14 +25,14 @@ textarea {
 
 /* buttons and navigation */
 .btn-primary{
-  background-color: lightgreen !important;
-  border-color:black !important;
-  color:black !important;
-}
-.btn-primary:hover{
-  background-color: green !important;
+  background-color: rgb(38, 38, 38) !important;
   border-color:black !important;
   color:white !important;
+}
+.btn-primary:hover{
+  background-color: rgb(76, 255, 5) !important;
+  border-color:black !important;
+  color:black !important;
 }
 .nav-entry{
   font-weight: bold !important;
@@ -46,7 +46,8 @@ textarea {
 
 .nav-item:hover{
   border-radius: 24px;
-  background-color: white !important;
+  border-color: black !important;
+  background-color: rgb(76, 255, 5) !important;
 }
 
 /* spacer */

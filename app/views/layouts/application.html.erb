@@ -3,7 +3,13 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="icon" href="https://pics.clipartpng.com/midle/Green_Leaf_Earth_PNG_Clipart-2978.png">
+    <!-- most chromium base browsers and firefox -->
+    <link rel="icon" href="/assets/favicon.png" type="image/png"/>
+    <!-- ie10 or lower-->
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"/>
+    <!-- safari -->
+    <link rel="apple-touch-icon" href="/assets/favicon.png" type="image/png"/>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -11,7 +17,7 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-      <%= link_to image_tag("logo.png",size:"500x75") , root_path, id: "logo" , :class=>'banner'%>
+      <%= link_to image_tag("logo.png",size:"800x100") , root_path, id: "logo" , :class=>'banner'%>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item"><%= link_to "Home",  root_path , :class=>"nav-entry"%></li>
