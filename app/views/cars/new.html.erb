@@ -17,17 +17,12 @@
       //Optional: initialize the year, make, model, and trim drop downs by providing their element IDs
       carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
 
-      //Optional: set the onclick event for a button to show car data.
-      $('#cq-show-data').click(  function(){ carquery.populateCarData('car-model-data'); } );
-
-      //Optional: initialize the make, model, trim lists by providing their element IDs.
-      carquery.initMakeModelTrimList('make-list', 'model-list', 'trim-list', 'trim-data-list');
       });
   </script>
 </head>
 
 <title>Add a New Car</title>
-<div class="spacer">
+<div class="container">
   <h1>Add a New Car</h1>
 
   <div class="row">
@@ -55,5 +50,6 @@
         </div>
       <% end %>
     </div>
+ 
   </div>
 </div>
