@@ -8,7 +8,7 @@
       <th>Year</th>
       <th>Make</th>
       <th>Model</th>
-      <th>Trim</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
             <td><%= car.year %></td>
             <td><%= car.make %></td>
             <td><%= car.model %></td>
-            <td><%= car.trim %></td>
+            <td><%= car.car_name %></td>
             <td><%= link_to "Add a New Fuel Log", '/new_fuel_log/' + car.id.to_s, class: "btn btn-primary"  %></td>
         <% end%>    
       </tr>

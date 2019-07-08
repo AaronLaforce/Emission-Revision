@@ -4,5 +4,9 @@ class Car < ApplicationRecord
     validates :year, presence: true 
     validates :make, presence: true 
     validates :model, presence: true
-    validates :trim, presence: true
+    validates :car_name, presence: true
+
+    def make=(s)
+        write_attribute(:make, s.to_s.capitalize)
+    end
 end

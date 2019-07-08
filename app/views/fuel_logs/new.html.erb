@@ -6,24 +6,24 @@
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(@fuel_log, url: '/new_fuel_log/' + @car.id.to_s) do |f| %>
         <div class="field">
-          <%= f.label :fueltype %>
-          <%= f.select :fueltype, options_for_select( ["Diesel", "Regular","Premium","Other"]) %>
+          <%= f.label :fueltype, "Fuel Type" %>
+          <%= f.select :fueltype, options_for_select( ["Diesel", "Regular","Midgrade","Premium","Other"]),{},:class=>'form-control' %>
         </div>
         <div class="field">
-          <%= f.label :gasprice %>
-          <%= f.text_field :gasprice %>
+          <%= f.label :gasprice, "Gas Price" %>
+          <%= f.text_field :gasprice, :placeholder=>'Please enter the price per litre at time of fill up' ,:class=>'form-control' %>
         </div>
         <div class="field">
-          <%= f.label :price %>
-          <%= f.text_field :price %>
+          <%= f.label :price, "Price Paid" %>
+          <%= f.text_field :price,:placeholder=>'Please enter the total amount paid at time of fill up',:class=>'form-control' %>
         </div>
         <div class="field">
           <%= f.label :mileage %>
-          <%= f.text_field :mileage %>
+          <%= f.text_field :mileage ,:placeholder=>'Please enter the mileage at the time of fill up in kilometers',:class=>'form-control'%>
         </div>
         <div class="field">
           <%= f.label :car_id%>
-          <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, id: @car.id).pluck(:make),:class=>'form-control',:readonly=>true )%>
+          <%= f.text_field(:car_id ,:value=>Car.where(user_id: current_user.id, id: @car.id).pluck(:car_name),:class=>'form-control',:readonly=>true )%>
         </div>
           <%= f.submit "Add Fuel Log", class: "btn btn-primary" %>
       

@@ -42,8 +42,8 @@
           <%= f.select :model,{}, {}, {name:"model" ,id: "car-models",:class=>'form-control' } %>
         </div>
         <div class="field">
-          <%= f.label :trim %>
-          <%= f.select :trim,{}, {}, {name:"trim" ,id: "car-model-trims" ,:class=>'form-control'} %>
+          <%= f.label :car_name, "Car Name" %>
+          <%= f.text_field :car_name, name:"car_name", placeholder: "Give your car a name to make it unique!",:class=>'form-control' %>
         </div>
         <div class="actions">
           <%= f.submit "Add Car", class: "btn btn-primary" %>
