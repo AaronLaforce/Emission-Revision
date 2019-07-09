@@ -1,9 +1,6 @@
 class SearchController < ApplicationController
   def new
     @name = ''
-    if @users
-      @users.destroy!
-    end  
   end
 
   def create

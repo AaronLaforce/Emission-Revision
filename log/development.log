@@ -23664,3 +23664,68 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/" for ::1 at 2019-07-08 21:31:16 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search" for ::1 at 2019-07-08 21:31:17 -0700
+Processing by SearchController#new as HTML
+  Rendering search/new.html.erb within layouts/application
+  Rendered search/new.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 55ms (Views: 53.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/search/new" for ::1 at 2019-07-08 21:31:20 -0700
+Processing by SearchController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hMzqnGDnnTr6ofyeChDtNmeQyedM9ZoCewaAMhMv+XoRqP4eI+t82A34Gqr+I5vourJxbRlnTAJ9AcJu0tQ9bQ==", "name"=>"name", "commit"=>"Search"}
+Redirected to http://localhost:3000/search/index?name=name
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/search/index?name=name" for ::1 at 2019-07-08 21:31:20 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"name"=>"name"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ?[0m  [["name", "name"]]
+  ↳ app/views/search/index.html.erb:11
+  Rendered search/index.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search" for ::1 at 2019-07-08 21:31:21 -0700
+Processing by SearchController#new as HTML
+  Rendering search/new.html.erb within layouts/application
+  Rendered search/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/search/new" for ::1 at 2019-07-08 21:31:25 -0700
+Processing by SearchController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YYdqvVzwv0HHc5AXltKp8OzRRWIQlzWGj47/jZ23XRz0434/H/xeozAqdiNi4d8uMfP96EUF44aJib3RXEyZCw==", "name"=>"cool guy", "commit"=>"Search"}
+Redirected to http://localhost:3000/search/index?name=cool+guy
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/search/index?name=cool+guy" for ::1 at 2019-07-08 21:31:25 -0700
+Processing by SearchController#index as HTML
+  Parameters: {"name"=>"cool guy"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ?[0m  [["name", "cool guy"]]
+  ↳ app/views/search/index.html.erb:11
+  Rendered search/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.3ms)
+
+
