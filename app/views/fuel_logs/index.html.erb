@@ -1,5 +1,5 @@
 <title>My Fuel Logs</title>
-<h2><strong>Fuel Logs For Each Car</strong></h2>
+<h2><strong><u>Fuel Logs For Each Car:</u></strong></h2>
 <table>
   <tbody>
     <% @cars.each do |car| %>
@@ -17,7 +17,7 @@
                 <tr>
                   <%# get name first%>
                   <% name = Car.where(id: fuel_log.car_id).pluck(:car_name).join%>
-                  <td><h3><u><%= Car.where(id: fuel_log.car_id).pluck(:car_name).join %></u></h3></td>
+                  <td><h3><%= Car.where(id: fuel_log.car_id).pluck(:car_name).join %></h3></td>
                   <td colspan="3">
                     <h3><%= Car.where(id: fuel_log.car_id).pluck(:year).join %>
                     <%= Car.where(id: fuel_log.car_id).pluck(:make).join %>
@@ -73,12 +73,14 @@
           </tr>
         <% end %>
         <tr><td><!-- spacer--><td></tr>
+        <tr><td><!-- spacer--><td></tr>
+        <tr><td><!-- spacer--><td></tr>
       <% end%>
     <% end %>
   </tbody>
 </table>
 <div class="mini-spacer">
-  <h2><strong><u>Important Information</u></strong></h2>
+  <h2><strong><u>Important Information:</u></strong></h2>
   <h3> Fuel log calculations are done with at least 2 prior entries </h3>
   <h3> If you do not see any fuel logs,
       please visit My Cars to make a new fuel log or 
