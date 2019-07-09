@@ -1,7 +1,8 @@
 <title>My Fuel Logs</title>
-<h2><strong><u>Fuel Logs For Each Car:</u></strong></h2>
+<h2><strong><u>Fuel Logs:</u></strong></h2>
 <table>
   <tbody>
+    <% num_logs=0 %>
     <% @cars.each do |car| %>
       <%# variables %>
       <% name=""%>
@@ -46,6 +47,7 @@
                 <% distance=fuel_log.mileage.to_f%>
               <% end %>
               <% count+=1 %>
+              <% num_logs+=1 %>
             <% end %>    
           </tr>
         <% end %>
@@ -77,13 +79,43 @@
         <tr><td><!-- spacer--><td></tr>
       <% end%>
     <% end %>
+    <% if num_logs == 0%>
+      <tr>
+        <td><h4>No fuel logs recorded. Please visit My Cars to make a new fuel log or 
+              <a class="btn btn-primary" href="/new_car" target="_self">Add a New Car!</a>
+            </h4>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 <div class="mini-spacer">
-  <h2><strong><u>Important Information:</u></strong></h2>
-  <h3> Fuel log calculations are done with at least 2 prior entries </h3>
-  <h3> If you do not see any fuel logs,
-      please visit My Cars to make a new fuel log or 
-  <a class="btn btn-primary" href="/new_car" target="_self">Add a New Car!</a>
-  </h3>
+  <h2><strong><u>Disclaimer:</u></strong></h2>
+  <div class="mini-spacer"></div>
+  <h4> <strong>Fuel log calculations are done with at least 2 prior entries </strong></h4>
+  
+  <h4> <strong>Fuel Manufacturing</strong> is assumed to be a constant figure representing
+  the carbon output for materials, machineries, factories, etc. from manufacturing a car. It is based
+  on the manufacturing footprint of 8 tons CO<sub>2</sub> e per vehicle and the average lifetime vehicle mileage
+  of 250,000km. This is only an estimate based on the statistical data from the Environmental Protection Agency (see below).</h4>
+  <h4><strong>Fuel Combustion</strong> is the emissions from your tailpipe which is a measure of how much carbon
+   emissions your car produces. In other words, it is the carbon footprint of your vehicle as it is calculated 
+   directly from your fuel consumption. Note: we assume the emissions factor is 2.33 kg CO<sub>2</sub> e/litre. 
+   This factor can change, but for our purpose, this is a good estimate.</h4>
+  <h4><strong>Fuel Production</strong> is the emissions from the production of gasoline, namely the emissions from
+   refinement, extraction, transportation, maintenance, and development of crude oil into gasoline. Although this measurement
+   is an external measurement, we can still consider it as vital part of the carbon footprint calculation. It provides
+   a comprehensive insight to our carbon footprint.</h4>
+  <div class="mini-spacer"></div>
+  <h4><strong> For more information, please visit: </strong></h4>
+  <ul>
+    <li><h5><a class="img-link" href="http://shrinkthatfootprint.com/calculate-your-driving-emissions"><strong>ShrinkThatFootprint</strong></a></li>
+    <li>  <h5>
+            <a class="img-link" href="https://www.epa.gov/greenvehicles">
+              <img class="img-link" height="75" width="75" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Logo_of_the_United_States_Environmental_Protection_Agency.svg" alt="EPA">
+              <strong> Environmental Protection Agency</strong>
+            </a>
+          </h5>
+    </li>
+  </ul>
 </div>
