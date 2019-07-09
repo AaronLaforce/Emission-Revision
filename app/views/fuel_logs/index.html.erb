@@ -12,7 +12,7 @@
       <% if car.user_id == current_user.id%>
         <% @fuel_logs.each do |fuel_log| %>
           <tr>
-            <% if fuel_log.user_id == current_user.id && fuel_log.car_id == car.id%>
+            <% if fuel_log.car_id == car.id%>
               <% if count == 0%>
                 <tr>
                   <%# get name first%>

@@ -22,6 +22,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item"><%= link_to "Home",  root_path , :class=>"nav-entry"%></li>
             <% if logged_in? %>
+              <li class="nav-item"><%= link_to "Search", search_path,:class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Fuel Logs", fuel_logs_path,:class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Cars", cars_path , :class=>"nav-entry"%></li> 
               <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete , :class=>"nav-entry"%></li>

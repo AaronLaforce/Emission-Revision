@@ -16,13 +16,11 @@
   <tbody>
     <% @cars.each do |car| %>
       <tr>
-        <% if car.user_id = current_user.id %>
-            <td><%= car.year %></td>
-            <td><%= car.make %></td>
-            <td><%= car.model %></td>
-            <td><%= car.car_name %></td>
-            <td><%= link_to "Add a New Fuel Log", '/new_fuel_log/' + car.id.to_s, class: "btn btn-primary"  %></td>
-        <% end%>    
+          <td><%= car.year %></td>
+          <td><%= car.make %></td>
+          <td><%= car.model %></td>
+          <td><%= car.car_name %></td>
+          <td><%= link_to "Add a New Fuel Log", '/new_fuel_log/' + car.id.to_s, class: "btn btn-primary"  %></td>
       </tr>
     <% end %>
     <tr>

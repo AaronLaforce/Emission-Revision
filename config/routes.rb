@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'search/new'
+  get 'search/create'
+  get 'search/index'
   root 'static_pages#home'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -11,6 +14,9 @@ Rails.application.routes.draw do
   get '/new_fuel_log/:id', to: 'fuel_logs#new'
   post '/new_fuel_log/:id', to: 'fuel_logs#create'
   get '/fuel_logs',to: 'fuel_logs#index'
+  get '/searchs/:name', to: 'search#index'
+  get '/search', to: 'search#new'
+  post '/search/new', to: 'search#create'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
