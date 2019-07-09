@@ -1,32 +1,87 @@
 <title>My Fuel Logs</title>
+<h2><strong>Fuel Logs For Each Car</strong></h2>
 <table>
-  <thead>
-      <tr>
-        <th>Fuel Type</th>
-        <th>Gas Price (Price per Litre)</th>
-        <th>Price Paid</th>
-        <th>Mileage at Fill Up (km)</th>
-        <th>Car's Name</th>
-        <th colspan="3"></th>
-      </tr>
-  </thead>
-
   <tbody>
-    <% @fuel_logs.each do |fuel_log| %>
-      <tr>
-        <% if fuel_log.user_id = current_user.id %>
-            <td><%= fuel_log.fueltype %></td>
-            <td><%= fuel_log.gasprice %></td>
-            <td><%= fuel_log.price %></td>
-            <td><%= fuel_log.mileage %></td>
-            <td><%= Car.where(id: fuel_log.car_id).pluck(:car_name).join %></td>
-        <% end %>    
-      </tr>
+    <% @cars.each do |car| %>
+      <%# variables %>
+      <% name=""%>
+      <% count = 0 %>
+      <% first_distance = 0.0%>
+      <% distance = 0.0%>
+      <% litres = 0.0%>
+      <% if car.user_id == current_user.id%>
+        <% @fuel_logs.each do |fuel_log| %>
+          <tr>
+            <% if fuel_log.user_id == current_user.id && fuel_log.car_id == car.id%>
+              <% if count == 0%>
+                <tr>
+                  <%# get name first%>
+                  <% name = Car.where(id: fuel_log.car_id).pluck(:car_name).join%>
+                  <td><h3><u><%= Car.where(id: fuel_log.car_id).pluck(:car_name).join %></u></h3></td>
+                  <td colspan="3">
+                    <h3><%= Car.where(id: fuel_log.car_id).pluck(:year).join %>
+                    <%= Car.where(id: fuel_log.car_id).pluck(:make).join %>
+                    <%= Car.where(id: fuel_log.car_id).pluck(:model).join %></h3>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Log Number</th>
+                  <th>Fuel Type</th>
+                  <th>Gas Price (Price per Litre)</th>
+                  <th>Price Paid</th>
+                  <th>Mileage at Fill Up (km)</th>
+                  <th colspan="3"></th>
+                </tr>
+              <% end %>
+              <td><%=1+count%></td>
+              <td><%= fuel_log.fueltype %></td>
+              <td><%= fuel_log.gasprice %></td>
+              <td><%= fuel_log.price %></td>
+              <td><%= fuel_log.mileage %></td>
+              <%# calculations%>
+              <% if count == 0%>
+                <% first_distance = fuel_log.mileage.to_f%>
+              <% else%>
+                <% litres+= (fuel_log.price.to_f / fuel_log.gasprice.to_f)*100%>
+                <% distance=fuel_log.mileage.to_f%>
+              <% end %>
+              <% count+=1 %>
+            <% end %>    
+          </tr>
+        <% end %>
+        <% if count > 1%>
+          <tr>
+            <th colspan="2"><h4><strong><u>Emissions Calculations for <%= name%>:</u></strong></h4></th>
+          </tr>
+          <tr>
+            <th>Total Litres Bought</th>
+            <th>Total Distance Travelled</th>
+            <th>Average Fuel Consumption</th>
+            <th>Fuel Manufacturing</th>
+            <th>Fuel Combustion</th>
+            <th>Fuel Production</th>
+          </tr>
+          <tr>
+            <%# precalculation%>
+            <% distance_travelled = distance - first_distance%>
+            <td><%= litres.round(3) %> L</td>
+            <td><%= distance_travelled.round(3)%> km</td>
+            <td><%= ((litres/distance_travelled)*100).round(3)%> L/100km</td>
+            <td><strong>32</strong> g CO<sub>2</sub> e/km</td>
+            <td><%= (2.33*(litres/distance_travelled)).round(3)%> kg CO<sub>2</sub> e/km</td>
+            <td><%=  (0.43*(litres/distance_travelled)).round(3)%> kg CO<sub>2</sub> e/km</td>
+          </tr>
+        <% end %>
+        <tr><td><!-- spacer--><td></tr>
+      <% end%>
     <% end %>
   </tbody>
 </table>
 <div class="mini-spacer">
-  <h2> Please visit My Cars to make a new fuel log or 
+  <h2><strong><u>Important Information</u></strong></h2>
+  <h3> Fuel log calculations are done with at least 2 prior entries </h3>
+  <h3> If you do not see any fuel logs,
+      please visit My Cars to make a new fuel log or 
   <a class="btn btn-primary" href="/new_car" target="_self">Add a New Car!</a>
-  </h2>
+  </h3>
 </div>

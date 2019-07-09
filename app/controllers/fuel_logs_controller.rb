@@ -19,6 +19,7 @@ class FuelLogsController < ApplicationController
     
       def index
         @fuel_logs= FuelLog.where(user_id: current_user.id)
+        @cars = Car.where(user_id: current_user.id)
       end
     
       private
