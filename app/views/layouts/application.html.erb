@@ -35,7 +35,11 @@
       </div>
     </header>
     <div class="banner-spacer">
-      <div class="container"></div>
+      <div class="greetings">
+        <% if logged_in? %>
+          <h3>Welcome, <%= User.where(id: current_user.id).pluck(:name).join%>!<h3>
+        <% end %>
+      </div>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
