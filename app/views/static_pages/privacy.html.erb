@@ -1,0 +1,27 @@
+<head>
+<script>
+
+  function checkForm(form)
+  {
+    ...
+    if(!form.terms.checked) {
+      alert("Please indicate that you accept the Privacy Policy");
+      form.terms.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
+</head>
+
+<body onload="disableSubmit()">
+  <div class="container">
+    <h3>Privacy Policy</h3>
+    <p>loremipsum</p>
+    <form class="mini-spacer" method="GET" action="/signup" onsubmit="return checkForm(this);">
+      <h4><input type="checkbox" required name="accept" class="checkbox-submit"> I accept the <u>Privacy Policy</u></h4>
+      <h4><input type="submit" value="Continue" class="checkbox-submit"></h4>
+    </form>
+  </div>
+</body>

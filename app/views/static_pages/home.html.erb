@@ -1,6 +1,6 @@
-<title>Ecological Tracker App</title>
+<title>Emission-Revision</title>
 <div class="center jumbotron">
-  <h1>Welcome to Ecological Tracker</h1>
+  <h1>Welcome to Emission-Revision</h1>
 
   <h2>
     Start tracking your carbon footprint for free today and explore 
@@ -9,6 +9,6 @@
   <% if logged_in? %>
       <a class="btn btn-lg btn-primary" href="/new_car" target="_self">Add a New Car!</a>
   <% else %>  
-    <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign Up Now!", terms_path, class: "btn btn-lg btn-primary" %>
   <% end %>  
 </div>

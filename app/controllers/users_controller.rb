@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
+  include UsersHelper
   def show
     @user = User.find(params[:id])
     redirect_to root_path
+  end
+
+  def index
+    
   end
 
   def new
@@ -16,6 +21,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = "Failed to create account"
+      render :new
     end
   end
 

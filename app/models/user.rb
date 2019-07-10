@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :fuel_logs
     # emails are saved in lowercase
     before_save { self.email = email.downcase }
-    validates :name, presence: true
+    validates :name, presence: true,uniqueness: true
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     # ensures that email exists, has the proper form of an email,
     # and is not the same as another in the database

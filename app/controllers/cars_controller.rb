@@ -11,6 +11,7 @@ class CarsController < ApplicationController
       redirect_to root_path
     else 
       flash[:danger] = "Failed to create car"
+      render :new
     end  
   end
 
