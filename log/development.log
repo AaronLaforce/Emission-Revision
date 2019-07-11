@@ -28342,3 +28342,1988 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:11:58 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 413ms (Views: 397.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 14:12:02 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 89ms (Views: 88.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-07-10 14:12:03 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gPpPPiGK7w/xRt6doAKIce7cYbI5CKATQoKYMsvXPp2/CcniMHaHBU9uEYHdknkNrHMcSRsxW3RrxWHvbdm4Jw==", "session"=>{"email"=>"tester@tester.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@tester.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 78ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-07-10 14:12:03 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:12:03 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:23
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:12:27 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:23
+Completed 200 OK in 69ms (Views: 67.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 14:12:40 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (7.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:23
+Completed 200 OK in 41ms (Views: 36.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 14:12:41 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (117.8ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (138.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:23
+Completed 200 OK in 199ms (Views: 71.3ms | ActiveRecord: 120.4ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2019-07-10 14:12:43 -0700
+Processing by SearchController#new as HTML
+  Rendering search/new.html.erb within layouts/application
+  Rendered search/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:23
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2019-07-10 14:12:53 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cQlMz+MibvxddGKwPyKVfftO0ektkUNpUbr6HnIwblSGnxgaHeLMuFw4Ltaca0DU6wgZmjcYSF/+2s88n3egTw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:12:53 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:13:42 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 14:13:44 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-07-10 14:13:45 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pIlY0IvDNziG+JiyxJgKQycwjWt+JD8LdNWxFogogi+bet4Mmj9fMjjQV665CPs/ZZ/wkFwdxGxdkkjLLiYElQ==", "session"=>{"email"=>"tester@tester.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@tester.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 67ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-07-10 14:13:45 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:13:45 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 14:13:57 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (0.3ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (23.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 71ms (Views: 67.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 14:13:57 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (0.1ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (8.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 40ms (Views: 37.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:13:59 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:14:00 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 14:14:18 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 14:14:20 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (0.2ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (23.9ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 63ms (Views: 58.7ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2019-07-10 14:14:25 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bh8y5cBoS0c6HtcpyKBT8nSP/AGTjucIDH8dxvDmIuuZiWYwPqjpAztSm09r6YZbZMk0cokH7D6jHyjkHaHs8A=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:14:25 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:17:04 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:17:05 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:17:06 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:17:06 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 14:17:08 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-07-10 14:17:09 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6v8eePeG+V6Y8b9QJP1tr23srR+ES7QCp8q4mJgx2i7VDJik5nqRVCbZcExZbZzTL0PQ5KZyT2WOjUFFPj9clA==", "session"=>{"email"=>"tester@tester.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@tester.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 81ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-07-10 14:17:09 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:17:09 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 14:17:11 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (7.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 42ms (Views: 35.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-10 14:17:16 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/new_car" for 127.0.0.1 at 2019-07-10 14:18:35 -0700
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pjALDRc6/v5UmCFwOdx9sYa6FCq/wPwcTnoLH1eXF3dRpl/Y6fpculXUbRaalagYlvzcWaVJ9yrhGj49utDZbA==", "year"=>"", "make"=>"", "model"=>"", "car_name"=>"", "commit"=>"Add Car"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/cars_controller.rb:9
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (2.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 74ms (Views: 31.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-10 14:18:46 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 14:18:52 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (0.1ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (17.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 52ms (Views: 44.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 14:21:15 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (8.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 60ms (Views: 35.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/new_fuel_log/3" for 127.0.0.1 at 2019-07-10 14:21:17 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 1], ["id", 3]]
+  ↳ app/views/fuel_logs/new.html.erb:30
+  Rendered fuel_logs/new.html.erb within layouts/application (3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 46ms (Views: 30.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/new_fuel_log/3" for 127.0.0.1 at 2019-07-10 14:21:24 -0700
+Processing by FuelLogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YagiDPECYy8D1JVBCu0cXOSivN1rBxEuYZAZ74rGw0iAxcifQ3uEFJJVFIPNqRBUcScmHHLDrZq+K27NtixKEg==", "fuel_log"=>{"fueltype"=>"Diesel", "gasprice"=>"", "price"=>"", "mileage"=>"", "car_id"=>"Porsche"}, "commit"=>"Add Fuel Log", "id"=>"3"}
+Unpermitted parameter: :car_id
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 1], ["id", 3]]
+  ↳ app/views/fuel_logs/new.html.erb:30
+  Rendered fuel_logs/new.html.erb within layouts/application (3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 67ms (Views: 55.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2019-07-10 14:21:30 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VMY9ZmkOh60oH8bxMlshkaVHAMNTAYcdfBEqHkFJzxqjUGmzl84l6SlTipeREvQ4tQHIsEmIjCvTcR88rA4BAQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:21:30 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:21:32 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 14:24:40 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-07-10 14:24:42 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eU6BUm4y5l70e5lZbHESosfKYFiTRl8WJfzP9PwInfpGvQeOf86OVEpTVkUR4ePehWUdo7F/pHEMuzYpWgYbQA==", "session"=>{"email"=>"tester@tester.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@tester.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 80ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-07-10 14:24:42 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:24:42 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 14:24:43 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (8.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 56ms (Views: 49.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/new_fuel_log/3" for 127.0.0.1 at 2019-07-10 14:24:46 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 1], ["id", 3]]
+  ↳ app/views/fuel_logs/new.html.erb:30
+  Rendered fuel_logs/new.html.erb within layouts/application (3.6ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 130ms (Views: 34.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/new_fuel_log/3" for 127.0.0.1 at 2019-07-10 14:25:01 -0700
+Processing by FuelLogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oni7XeB2/qMNIlp+mcbWT+6t7Tfq/6MImYZ+QnohP9XbFVHOUg8ZmJyj27xegtpHeyh39vM7H7xGPQlgRsu2jw==", "fuel_log"=>{"fueltype"=>"Diesel", "gasprice"=>"12", "price"=>"f", "mileage"=>"23", "car_id"=>"Porsche"}, "commit"=>"Add Fuel Log", "id"=>"3"}
+Unpermitted parameter: :car_id
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/fuel_logs_controller.rb:12
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 1], ["id", 3]]
+  ↳ app/views/fuel_logs/new.html.erb:30
+  Rendered fuel_logs/new.html.erb within layouts/application (3.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 54ms (Views: 44.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:25:11 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 14:34:21 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:34:23 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:37:22 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:39:26 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 51ms (Views: 49.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:46:24 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:47:54 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:48:25 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:49:35 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:51:42 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:54:11 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:54:35 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:55:15 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 14:57:40 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 15:02:42 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 2098ms (Views: 2096.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 15:02:45 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:02:46 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:03:14 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:05:50 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 91ms (Views: 89.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:10:03 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 15:11:47 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (2.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 70ms (Views: 68.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 15:11:47 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:11:49 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:13:19 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 15:16:56 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (0.2ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (10.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 15:17:15 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2019-07-10 15:17:22 -0700
+Processing by SearchController#new as HTML
+  Rendering search/new.html.erb within layouts/application
+  Rendered search/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:17:24 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 45ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2019-07-10 15:17:26 -0700
+Processing by SearchController#new as HTML
+  Rendering search/new.html.erb within layouts/application
+  Rendered search/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:17:27 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:17:48 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 42ms (Views: 41.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:18:27 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:19:44 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:20:11 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 15:45:21 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/medea/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 299ms (Views: 294.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:45:26 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:52:25 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 15:58:47 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 15:58:49 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 16:02:05 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 44ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:02:09 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:05:45 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:07:19 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:07:48 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:08:21 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:12:38 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:13:31 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:16:05 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:17:09 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:17:31 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:18:30 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:19:44 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 48ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:19:47 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:21:31 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 60ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:22:09 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 63ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:23:10 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 51ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:24:59 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 52ms (Views: 51.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:25:00 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:25:01 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:25:22 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 47ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:26:19 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:26:57 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 61ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:26:58 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:26:59 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:27:00 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:27:05 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:27:15 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:27:46 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 52ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:28:15 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 48ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:28:16 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:29:50 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:29:56 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:30:07 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:30:35 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:30:40 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 49ms (Views: 48.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:31:14 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:32:11 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 62ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:32:33 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 60ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:32:43 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:32:58 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:34:41 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:35:05 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:35:37 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:35:39 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:35:39 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:35:39 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:36:43 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 62ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:37:07 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 56ms (Views: 55.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2019-07-10 16:37:17 -0700
+Processing by StaticPagesController#privacy as HTML
+  Rendering static_pages/privacy.html.erb within layouts/application
+  Rendered static_pages/privacy.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 16:37:21 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:35:50 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 17:35:56 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 41.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 17:36:46 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:39:18 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:39:21 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 56ms (Views: 54.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:39:23 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:40:02 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:40:41 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:40:48 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:40:57 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:41:02 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:41:17 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:43:14 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 117ms (Views: 115.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:43:14 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:43:17 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:43:26 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:44:28 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:55:23 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:57:21 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 17:57:23 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy?accept=on" for 127.0.0.1 at 2019-07-10 17:57:30 -0700
+Processing by StaticPagesController#privacy as HTML
+  Parameters: {"accept"=>"on"}
+  Rendering static_pages/privacy.html.erb within layouts/application
+  Rendered static_pages/privacy.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 17:57:34 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy_read" for 127.0.0.1 at 2019-07-10 17:57:37 -0700
+Processing by StaticPagesController#privacy-r as HTML
+  Rendering static_pages/privacy-r.html.erb within layouts/application
+  Rendered static_pages/privacy-r.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 17:57:39 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:57:58 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:58:01 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 17:58:02 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 17:58:04 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 41.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 17:58:07 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-10 17:58:14 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-07-10 17:58:16 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXPXF15ZJ/dbu38cHsWk4nj8SIERI/d141WxOqMu7wr7h+pUbAlUKenZpb3/ALfc403qWGiMS59HjimtVu8KXw==", "session"=>{"email"=>"tester@tester.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@tester.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 82ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-07-10 17:58:16 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:58:16 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (2.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 17:58:19 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 33ms (Views: 32.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 17:58:22 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (8.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 55ms (Views: 47.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 17:58:24 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 17:58:28 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (2.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/new_car" for 127.0.0.1 at 2019-07-10 17:58:31 -0700
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/new.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-07-10 17:58:33 -0700
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/cars/index.html.erb:8
+  Rendered cars/index.html.erb within layouts/application (2.6ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 59ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/new_fuel_log/1" for 127.0.0.1 at 2019-07-10 17:58:36 -0700
+Processing by FuelLogsController#new as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fuel_logs_controller.rb:4
+  Rendering fuel_logs/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."user_id" = ? AND "cars"."id" = ?[0m  [["user_id", 1], ["id", 1]]
+  ↳ app/views/fuel_logs/new.html.erb:30
+  Rendered fuel_logs/new.html.erb within layouts/application (3.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 54ms (Views: 42.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fuel_logs" for 127.0.0.1 at 2019-07-10 17:58:38 -0700
+Processing by FuelLogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendering fuel_logs/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:6
+  [1m[36mFuelLog Load (0.2ms)[0m  [1m[34mSELECT "fuel_logs".* FROM "fuel_logs" WHERE "fuel_logs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 2]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "cars"."car_name" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:21
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."year" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."make" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "cars"."model" FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/fuel_logs/index.html.erb:25
+  Rendered fuel_logs/index.html.erb within layouts/application (11.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 54ms (Views: 49.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2019-07-10 17:58:41 -0700
+Processing by SearchController#new as HTML
+  Rendering search/new.html.erb within layouts/application
+  Rendered search/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:58:45 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/layouts/application.html.erb:41
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2019-07-10 17:58:47 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"f3ziPkG/vf9fEQXdviNTVP+wR2lU0Mi8g6JzocbzTCX9vZRZY3P9lLCgh2V57VlhyoIZnPiDE45RkeY/XidAtg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 17:58:47 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 18:19:07 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy_read" for 127.0.0.1 at 2019-07-10 18:19:10 -0700
+Processing by StaticPagesController#privacy-r as HTML
+  Rendering static_pages/privacy-r.html.erb within layouts/application
+  Rendered static_pages/privacy-r.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 18:19:13 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 46ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2019-07-10 18:19:14 -0700
+Processing by StaticPagesController#terms as HTML
+  Rendering static_pages/terms.html.erb within layouts/application
+  Rendered static_pages/terms.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy?accept=on" for 127.0.0.1 at 2019-07-10 18:19:19 -0700
+Processing by StaticPagesController#privacy as HTML
+  Parameters: {"accept"=>"on"}
+  Rendering static_pages/privacy.html.erb within layouts/application
+  Rendered static_pages/privacy.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 18:20:27 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 18:20:58 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms_read" for 127.0.0.1 at 2019-07-10 18:21:05 -0700
+Processing by StaticPagesController#terms-r as HTML
+  Rendering static_pages/terms-r.html.erb within layouts/application
+  Rendered static_pages/terms-r.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy_read" for 127.0.0.1 at 2019-07-10 18:21:08 -0700
+Processing by StaticPagesController#privacy-r as HTML
+  Rendering static_pages/privacy-r.html.erb within layouts/application
+  Rendered static_pages/privacy-r.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-07-10 18:21:15 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-10 18:21:19 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+

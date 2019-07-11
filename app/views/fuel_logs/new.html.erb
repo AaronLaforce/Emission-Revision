@@ -8,18 +8,22 @@
         <div class="field">
           <%= f.label :fueltype, "Fuel Type" %>
           <%= f.select :fueltype, options_for_select( ["Diesel", "Regular","Midgrade","Premium","Other"]),{},:class=>'form-control' %>
+          <%= display_log_error(:fueltype) %>
         </div>
         <div class="field">
           <%= f.label :gasprice, "Gas Price" %>
           <%= f.text_field :gasprice, :placeholder=>'Please enter the (cents) price per litre at time of fill up' ,:class=>'form-control' %>
+          <%= display_log_error(:gasprice) %>
         </div>
         <div class="field">
           <%= f.label :price, "Price Paid" %>
           <%= f.text_field :price,:placeholder=>'Please enter the total amount paid at time of fill up',:class=>'form-control' %>
+          <%= display_log_error(:price) %>
         </div>
         <div class="field">
           <%= f.label :mileage %>
           <%= f.text_field :mileage ,:placeholder=>'Please enter the mileage at the time of fill up in kilometers',:class=>'form-control'%>
+          <%= display_log_error(:mileage) %>
         </div>
         <div class="field">
           <%= f.label :car_id%>

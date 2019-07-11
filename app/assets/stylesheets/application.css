@@ -17,3 +17,23 @@
  .banner:hover{
     background-color: rgba(0,0,0,0);
 }
+
+.greetings{
+    text-align: right;
+    color:black;
+}
+
+.bot{
+    width:100%;
+}
+
+.left{
+    text-align: left !important;
+}
+.clickable:hover{
+    color:black !important;
+    background-color: rgba(0,0,0,0) !important;
+}
+.right{
+    text-align: right !important;
+}

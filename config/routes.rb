@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get '/search', to: 'search#new'
   post '/search/new', to: 'search#create'
   get '/terms', to: 'static_pages#terms'
+  get '/terms_read', to: 'static_pages#terms-r'
   get '/privacy', to: 'static_pages#privacy'
+  get '/privacy_read', to: 'static_pages#privacy-r'
   get '/about', to: 'static_pages#about'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

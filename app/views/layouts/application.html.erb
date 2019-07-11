@@ -21,13 +21,14 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item"><%= link_to "Home",  root_path , :class=>"nav-entry"%></li>
-            <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>
             <% if logged_in? %>
               <li class="nav-item"><%= link_to "Search", search_path,:class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Fuel Logs", fuel_logs_path,:class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Cars", cars_path , :class=>"nav-entry"%></li> 
+              <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>
               <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete , :class=>"nav-entry"%></li>
-            <% else %>  
+            <% else %> 
+              <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>
               <li class="nav-item"><%= link_to "Log In", login_path, :class=>"nav-entry" %></li>
             <% end %>  
           </ul>
@@ -37,7 +38,7 @@
     <div class="banner-spacer">
       <div class="greetings">
         <% if logged_in? %>
-          <h3>Welcome, <%= User.where(id: current_user.id).pluck(:name).join%>!<h3>
+          <p>Welcome, <%= User.where(id: current_user.id).pluck(:name).join%>!</p>
         <% end %>
       </div>
       <% flash.each do |message_type, message| %>
@@ -47,5 +48,14 @@
       <%#= debug(params) if Rails.env.development? %>
       </div>
     </div>
+    <footer>
+      <table class="bot">
+        <tr>
+          <td class="left"><h5><a class="clickable" href="/terms_read">Terms of Service</a></h5></td>
+          <td><h4> &copy; 2019 Emission Revision</h4></td>
+          <td class="right"><h5><a class="clickable" href="/privacy_read">Privacy Policy</a></h5></td>
+        </tr>
+      </table>
+    </footer>
   </body>
 </html>

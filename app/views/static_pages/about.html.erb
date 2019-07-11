@@ -1,3 +1,35 @@
+<title> About Us</title>
+<script>
+  var copyContact;
+
+  copyContact = function() {
+    var copyEmail;
+    copyEmail = document.getElementById('c-email');
+    copyEmail.select();
+    document.execCommand('copy');
+    alert('Email added to clipboard');
+  };
+</script>
 <body>
-<h1> nothing so far </h1>
-</body>
+  <h3> About Emission Revision </h3>
+  <h4 class="mini-spacer">Emission Revision is an environmental impact tracker that allows the user to monitor and track
+  their gas emissions, and thus part of their carbon footprint. The app will have the user create an
+    account in order for their information to be stored and tracked. The user when refueling will make a fuel log by:
+    entering the octane of the gas, the price per litre of gas, the total price paid, and the current mileage
+    at fill up. Then as more and more logs are recorded, the carbon emissions are calculated. This is also known as 
+    the carbon footprint. This information will be stored in the database. The app also lets users search for other
+    users if they have peers or friends who also have an account. By searching, the user can then see their friends
+    ecological footprint and compare with each other or strangers. There is also a forum that the user can read or post.
+    This forum is public and anyone with an account can use this service for free. In addition, the information
+    on fuel consumption can then be used to compare the amount of money one could save if they used public transit rather than drive.
+  </h4>
+  <h4> Emission Revision is a web application built on the Rails framework and is only intended for educational purposes.
+  Should you have any questions or concerns, please take a look at our terms of usage and policies below. If you still
+  have questions or concerns or feedback then please contact Emission Revision Support by clicking the email below.
+  </h4>
+  <h3 class="mini-spacer">Contact Us</h3>
+  <h4 class="mini-spacer"><strong>Emission Revision</strong></h4>
+
+  <h4 class="email-pointer"><button onclick="copyContact()"><input type="text" value="emission-revision@protonmail.com" 
+      id="c-email" readonly class="hidden">Email us at emission-revision@protonmail.com</button></h4>
+</body> 
