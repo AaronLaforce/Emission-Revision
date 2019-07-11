@@ -8,7 +8,12 @@ class SearchController < ApplicationController
   end
 
   def index
-    @users = User.where(name: params[:name])
+    if params[:name]
+      name = params[:name].split.join("%")
+      name << '%'
+      name = '%' + name
+      @users = User.where("name like ?", name)
+    end
   end
 
 end
