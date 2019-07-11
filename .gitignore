@@ -1,3 +1,5 @@
 .bundle/config
 tmp/
 .DS_Store
+.byebug_history
+log/development.log
