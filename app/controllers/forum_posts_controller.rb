@@ -4,7 +4,7 @@ class ForumPostsController < ApplicationController
   end
 
   def create
-    @forum_post = ForumPost.new(user_params) 
+    @forum_post = ForumPost.new(forum_params) 
     @forum_post.user_id = current_user.id if current_user
     if @forum_post.save
       flash[:success] = "Posted to forum!"
@@ -20,7 +20,7 @@ class ForumPostsController < ApplicationController
   end
 
   private
-    def user_params
-      params.permit(:topic, :content, :user_id)
+    def forum_params
+      params.require(:forum_post).permit(:topic, :content, :user_id)
     end
 end
