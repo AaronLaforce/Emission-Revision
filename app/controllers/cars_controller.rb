@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(user_params) 
+    @car = Car.new(car_params) 
     @car.user_id = current_user.id
     if @car.save
       flash[:success] = "Added new car!"
@@ -20,7 +20,7 @@ class CarsController < ApplicationController
   end
 
   private
-    def user_params
+    def car_params
       params.permit(:year, :make, :model, :car_name, :user_id)
     end
 end
