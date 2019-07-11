@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-    include SessionsHelper,CarsHelper, FuelLogsHelper, PostsHelper
+    include SessionsHelper,CarsHelper, FuelLogsHelper, ForumPostsHelper
 end

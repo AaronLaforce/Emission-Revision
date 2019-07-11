@@ -1,12 +1,12 @@
-class PostsController < ApplicationController
+class ForumPostsController < ApplicationController
   def new
-    @post = Post.new(params[:id])
+    @forum_post = ForumPost.new(params[:id])
   end
 
   def create
-    @post = Post.new(user_params) 
-    @post.user_id = current_user.id if current_user
-    if @post.save
+    @forum_post = ForumPost.new(user_params) 
+    @forum_post.user_id = current_user.id if current_user
+    if @forum_post.save
       flash[:success] = "Posted to forum!"
       redirect_to root_path
     else 
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @forum_posts = ForumPost.all
   end
 
   private

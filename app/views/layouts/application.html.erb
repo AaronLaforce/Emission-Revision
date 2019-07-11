@@ -22,7 +22,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item"><%= link_to "Home",  root_path , :class=>"nav-entry"%></li>
             <% if logged_in? %>
-              <li class="nav-item"><%= link_to "Forums", posts_path, :class=>"nav-entry"%>
+              <li class="nav-item"><%= link_to "Forums", forum_posts_path, :class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "Search", search_path,:class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Fuel Logs", fuel_logs_path,:class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Cars", cars_path , :class=>"nav-entry"%></li> 
@@ -46,7 +46,7 @@
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
-      <%#= debug(params) if Rails.env.development? %>
+      <%= debug(params) if Rails.env.development? %>
       </div>
     </div>
     <footer class="footer-spacer">

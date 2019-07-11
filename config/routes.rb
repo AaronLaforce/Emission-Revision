@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   get '/privacy', to: 'static_pages#privacy'
   get '/privacy_read', to: 'static_pages#privacy-r'
   get '/about', to: 'static_pages#about'
-  get '/new_post', to: 'posts#new'
-  post '/new_post', to: 'posts#create'
-  get '/posts', to: 'posts#index'
+  get '/new_forum_post', to: 'forum_posts#new'
+  post '/new_forum_post', to: 'forum_posts#create'
+  get '/forum_posts', to: 'forum_posts#index'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

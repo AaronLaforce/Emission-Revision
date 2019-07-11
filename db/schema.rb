@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_175944) do
+ActiveRecord::Schema.define(version: 2019_07_11_204807) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
     t.string "make"
     t.string "model"
     t.string "car_name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forum_posts", force: :cascade do |t|
+    t.string "topic"
+    t.text "content"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,14 +39,6 @@ ActiveRecord::Schema.define(version: 2019_07_11_175944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "car_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "topic"
-    t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

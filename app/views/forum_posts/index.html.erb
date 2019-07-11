@@ -1,8 +1,8 @@
 <title>Forums</title>
 <h2>Forums</h2>
-<%= link_to "Add a new post", new_post_path, :class=>"btn btn-primary"%>
+<%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%>
 <table class="container">
-  <% @posts.each do |post|%>
+  <% @forum_posts.each do |post|%>
     <tr>
       <td><%= post.topic %></td>
     </tr>
