@@ -37,3 +37,17 @@
 .right{
     text-align: right !important;
 }
+
+/* test
+
+
+body{ 
+    display:flex; 
+    flex-direction:column; 
+  }
+  
+  footer{
+    margin-top:auto; 
+  }
+
+  */
