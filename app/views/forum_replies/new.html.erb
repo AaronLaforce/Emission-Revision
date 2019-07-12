@@ -35,7 +35,8 @@
         <div class="field">
         <%= form_for(@forum_reply, method: :post) do |f| %>
             <%= f.label :content, "Enter your reply..." %>
-            <%= f.text_area :content, :placeholder=>'Enter the details of the post'%>
+            <%= f.text_area :content, :placeholder=>'Enter the details of the post' ,:class=>'form-control',:cols=>10,:rows=>10 %>
+            <%= display_forum_reply_error(:content) %>
           </div>
           <%= f.submit "Post to forums", class: "btn btn-primary" %>
         <% end %>
