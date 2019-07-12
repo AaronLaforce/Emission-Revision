@@ -1,8 +1,8 @@
 <title>Forums</title>
 <h2>Forums</h2>
 
-<table class="container forums mini-spacer">
-  <% @forum_posts.each do |post|%>
+<% @forum_posts.each do |post|%>
+  <table class="container forums mini-spacer">
     <tr>
       <td><%= post.topic %></td>
     </tr>
@@ -12,6 +12,6 @@
     <tr>
       <td> posted by <%= User.where(id: post.user_id).pluck(:name).join %> at <%= post.created_at %></td>
     </tr>
-  <% end %>
-</table>
+  </table>
+<% end %>
 <h4 class="spacer"><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></h4>
