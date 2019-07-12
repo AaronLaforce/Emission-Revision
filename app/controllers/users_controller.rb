@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       flash[:success] = "Successfully Created Account!"
       redirect_to @user
     else
-      flash[:danger] = "Failed to create account"
+      flash.now[:danger] = "Failed to create account"
       render :new
     end
   end

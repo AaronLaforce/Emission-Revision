@@ -10,7 +10,7 @@ class ForumPostsController < ApplicationController
       flash[:success] = "Posted to forum!"
       redirect_to root_path
     else 
-      flash[:danger] = "Failed to post to forum"
+      flash.now[:danger] = "Failed to post to forum"
       render :new
     end  
   end

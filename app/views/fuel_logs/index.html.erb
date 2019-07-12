@@ -1,5 +1,14 @@
 <title>My Fuel Logs</title>
-<h2><strong><u>Fuel Logs:</u></strong></h2>
+<%# debug%>
+<%= current_user.id%>
+<%= params[:id]%>
+
+<% if current_user.id.to_s == params[:id].to_s %>
+  <h2><strong>Fuel Logs: </strong></h2>
+<% end %>
+<% if current_user.id.to_s != params[:id].to_s %>
+  <h2><strong>Fuel Logs: for <%= User.where(id: params[:id]).pluck(:name).join%>  </strong></h2>
+<% end %>
 <table>
   <tbody>
     <% num_logs=0 %>
@@ -77,20 +86,26 @@
         <tr><td><!-- spacer--><td></tr>
         <tr><td><!-- spacer--><td></tr>
     <% end %>
-    <% if num_logs == 0%>
+    <% if num_logs == 0 && current_user.id.to_s == params[:id].to_s %>
       <tr>
         <td><h4>No fuel logs recorded. Please visit My Cars to make a new fuel log or 
               <a class="btn btn-primary" href="/new_car" target="_self">Add a New Car!</a>
             </h4>
         </td>
       </tr>
+    <% elsif num_logs == 0 && current_user.id.to_s != params[:id].to_s%>
+      <tr>
+        <td><h4> <%= User.where(id: params[:id]).pluck(:name).join%> has no fuel logs recorded. </h4></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
-<div class="mini-spacer">
+<div class="spacer">
   <h2><strong><u>Disclaimer:</u></strong></h2>
   <div class="mini-spacer"></div>
-  <h4> <strong> If you do not see a fuel log for your car, please visit <%= link_to "My Cars", cars_path , :class=>"btn btn-primary"%> to add a fuel log</strong></h4>
+  <% if current_user.id.to_s == params[:id].to_s %>
+    <h4> <strong> If you do not see a fuel log for your car, please visit <%= link_to "My Cars", cars_path , :class=>"btn btn-primary"%> to add a fuel log</strong></h4>
+  <% end %>
   <h4> <strong>Fuel log calculations are done with at least 2 prior entries </strong></h4>
   
   <h4> <strong>Fuel Manufacturing</strong> is assumed to be a constant figure representing

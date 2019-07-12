@@ -13,7 +13,7 @@ class FuelLogsController < ApplicationController
           flash[:success] = "Successfully added new fuel log!"
           redirect_to root_path
         else 
-          flash[:danger] = "Failed to add fuel log"
+          flash.now[:danger] = "Failed to add fuel log"
           render :new
         end  
       end

@@ -10,7 +10,7 @@ class CarsController < ApplicationController
       flash[:success] = "Added new car!"
       redirect_to root_path
     else 
-      flash[:danger] = "Failed to create car"
+      flash.now[:danger] = "Failed to create car"
       render :new
     end  
   end
