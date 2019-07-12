@@ -26,8 +26,10 @@ Rails.application.routes.draw do
   get '/new_forum_post', to: 'forum_posts#new'
   post '/new_forum_post', to: 'forum_posts#create'
   get '/forum_posts', to: 'forum_posts#index'
+  get '/new_forum_reply/', to: 'forum_replies#new'
   get '/new_forum_reply/:id', to: 'forum_replies#new'
-  post '/new_forum_reply/:id', to: 'forum_replies#create'
+  post '/forum_replies/', to: 'forum_replies#create'
+  post '/forum_replies/:id', to: 'forum_replies#create'
   get '/forum_replies', to: 'forum_replies#index'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

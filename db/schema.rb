@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_043940) do
+ActiveRecord::Schema.define(version: 2019_07_12_061830) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2019_07_12_043940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "forum_replies", force: :cascade do |t|
+    t.text "content"
+    t.integer "forum_post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "fuel_logs", force: :cascade do |t|
     t.string "fueltype"
     t.string "gasprice"
@@ -39,14 +47,6 @@ ActiveRecord::Schema.define(version: 2019_07_12_043940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "car_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.text "content"
-    t.integer "forum_post_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,10 +1,11 @@
 class ForumRepliesController < ForumPostsController
   def new
-    @forum_reply = ForumReply.new(params[:id])
+    @forum_reply = ForumReply.new
+    @forum_posts = ForumPost.all
+    @forum_replies = ForumReply.where(forum_post_id: params[:id])
   end
 
   def create
-    @forum_posts = ForumPost.all
     @forum_reply = ForumReply.new(reply_params) 
     @forum_reply.user_id = current_user.id if current_user
     if @forum_reply.save

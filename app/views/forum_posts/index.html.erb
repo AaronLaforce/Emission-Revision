@@ -12,6 +12,9 @@
     <tr>
       <td> posted by <%= User.where(id: post.user_id).pluck(:name).join %> at <%= post.created_at %></td>
     </tr>
+    <tr>
+      <td><%= link_to "View Replies", new_forum_reply_path(id: post.id), class: "btn btn-primary" %></td>
+    </tr>
   <% @forum_replies.each do |reply| %>
     <% if post.id == reply.forum_post_id%>
       <tr>
