@@ -6,4 +6,36 @@
   //border: 1px solid black;
   border-radius: 10px;
   background-color:lightgray;
+  width:80% !important;
+  margin-left: 50px !important;
+}
+
+/*
+.forum-reply{
+  background-color: lightgreen !important;
+  width:60% !important;
+}*/
+
+.forum-post>td{
+  text-align:left !important;
+  padding-left:50px !important;
+}
+
+.time-stamper{
+  font-style: italic !important;
+}
+
+.forum-reply>td,.forum-reply-link>td{
+  background-color:lightgreen !important;
+  text-align:left !important;
+  padding-left:100px !important;
+}
+
+.forum-topic{
+  padding-top:25px !important;
+}
+
+.forum-reply-link>td{
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }

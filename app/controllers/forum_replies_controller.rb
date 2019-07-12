@@ -8,9 +8,10 @@ class ForumRepliesController < ForumPostsController
   def create
     @forum_reply = ForumReply.new(reply_params) 
     @forum_reply.user_id = current_user.id if current_user
+    @forum_reply.forum_post_id = params[:id]
     if @forum_reply.save
       flash[:success] = "Replied to topic!"
-      redirect_to root_path
+      redirect_to forum_posts_path
     else 
       flash.now[:danger] = "Failed to post reply"
       render :new

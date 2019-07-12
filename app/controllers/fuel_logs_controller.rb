@@ -11,7 +11,7 @@ class FuelLogsController < ApplicationController
         @fuel_log.user_id = current_user.id
         if @fuel_log.save
           flash[:success] = "Successfully added new fuel log!"
-          redirect_to root_path
+          redirect_to fuel_logs_path
         else 
           flash.now[:danger] = "Failed to add fuel log"
           render :new

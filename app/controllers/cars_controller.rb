@@ -8,7 +8,7 @@ class CarsController < ApplicationController
     @car.user_id = current_user.id
     if @car.save
       flash[:success] = "Added new car!"
-      redirect_to root_path
+      redirect_to cars_path
     else 
       flash.now[:danger] = "Failed to create car"
       render :new

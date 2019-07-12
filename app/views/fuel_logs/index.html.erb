@@ -6,13 +6,14 @@
   <h2><strong>Fuel Logs: </strong></h2>
 <% end %>
 <% if current_user.id.to_s != params[:id].to_s %>
-  <h2><strong>Fuel Logs: for <%= User.where(id: params[:id]).pluck(:name).join%>  </strong></h2>
+  <h2><strong>Viewing <%= User.where(id: params[:id]).pluck(:name).join%>'s Fuel Logs  </strong></h2>
 <% end %>
 <table>
   <tbody>
     <% num_logs=0 %>
     <% @cars.each do |car| %>
       <%# variables %>
+      <% spent = 0%>
       <% name=""%>
       <% count = 0 %>
       <% first_distance = 0.0%>
@@ -53,6 +54,7 @@
                 <% litres+= (fuel_log.price.to_f / fuel_log.gasprice.to_f)*100%>
                 <% distance=fuel_log.mileage.to_f%>
               <% end %>
+              <% spent += fuel_log.price.to_f %>
               <% count+=1 %>
               <% num_logs+=1 %>
             <% end %>    
@@ -63,6 +65,7 @@
             <th colspan="2"><h4><strong><u>Emissions Calculations for <%= name%>:</u></strong></h4></th>
           </tr>
           <tr>
+            <th> Total Amount Spent</th>
             <th>Total Litres Bought</th>
             <th>Total Distance Travelled</th>
             <th>Average Fuel Consumption</th>
@@ -73,6 +76,7 @@
           <tr>
             <%# precalculation%>
             <% distance_travelled = distance - first_distance%>
+            <td>$ <%= spent.round(3) %></td>
             <td><%= litres.round(3) %> L</td>
             <td><%= distance_travelled.round(3)%> km</td>
             <td><%= ((litres/distance_travelled)*100).round(3)%> L/100km</td>

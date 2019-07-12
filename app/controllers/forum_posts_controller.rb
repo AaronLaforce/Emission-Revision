@@ -8,7 +8,7 @@ class ForumPostsController < ApplicationController
     @forum_post.user_id = current_user.id if current_user
     if @forum_post.save
       flash[:success] = "Posted to forum!"
-      redirect_to root_path
+      redirect_to forum_posts_path
     else 
       flash.now[:danger] = "Failed to post to forum"
       render :new

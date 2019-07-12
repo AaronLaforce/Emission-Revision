@@ -1,8 +1,10 @@
 <title>Search</title>
-<%= form_for(@name) do |f| %>
-    <div class="field">
-      <%= f.label :name, "Search by name" %>
-      <%= f.text_field :name, :placeholder=>'search...' ,:class=>'form-control' %>
-    </div>
-      <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>      
+<div class="searcher spacer">
+  <%= form_for(@name) do |f| %>
+      <div class="field">
+        <%= f.label :name, "Search by name" %>
+        <%= f.text_field :name, :placeholder=>'search...' ,:class=>'form-control' %>
+      </div>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>      
+</div>

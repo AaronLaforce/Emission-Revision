@@ -3,30 +3,40 @@
 
 <% @forum_posts.each do |post|%>
   <table class="container forums mini-spacer">
-    <tr>
-      <td><%= post.topic %></td>
+    <tr class="forum-post">
+      <td class="forum-topic"><h4><strong><%= post.topic %></strong></h4></td>
     </tr>
-    <tr>
+    <tr class="forum-post">
       <td> <%= post.content %></td>
     </tr>
-    <tr>
-      <td> posted by <%= User.where(id: post.user_id).pluck(:name).join %> at <%= post.created_at %></td>
+    <tr class="forum-post">
+      <td class="time-stamper"> posted by <strong><%= User.where(id: post.user_id).pluck(:name).join %></strong> at <%= post.created_at %></td>
     </tr>
     <tr>
-      <td><%= link_to "View Replies", new_forum_reply_path(id: post.id), class: "btn btn-primary" %></td>
+      <td><%# spacing do not remove%></td>
     </tr>
-  <% @forum_replies.each do |reply| %>
-    <% if post.id == reply.forum_post_id%>
-      <tr>
-        <td></td>
-        <td><%= reply.content %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>posted by <%= User.where(id: reply.user_id).pluck(:name).join %> at <%= reply.created_at %></td>
-      </tr>
+    <% @forum_replies.each do |reply| %>
+      <% if post.id == reply.forum_post_id%>
+        <tr class="forum-reply">
+          <td><%# spacing do not remove%></td>
+        </tr>
+        <tr class="forum-reply">
+          <td><%= reply.content %></td>
+        </tr>
+        <tr class="forum-reply">
+          <td class="time-stamper">reply posted by <strong><%= User.where(id: reply.user_id).pluck(:name).join %></strong> at <%= reply.created_at %></td>
+        </tr>
+      <% end %>
     <% end %>
-  <% end %>
+    <tr class="forum-reply">
+      <td><%# spacing do not remove%></td>
+    </tr>
+    <tr class="forum-reply-link">
+      <td><%= link_to "Reply to this post", new_forum_reply_path(id: post.id), class: "btn btn-primary" %></td>
+    </tr>
+    <tr class="forum-reply">
+      <td><%# spacing do not remove%></td>
+    </tr>
   </table>
 <% end %>
 <h4 class="spacer"><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></h4>

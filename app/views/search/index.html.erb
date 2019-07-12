@@ -1,22 +1,27 @@
 <title>Search Results</title>
-<table class="container">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="container searcher">
   <tbody>
-   <% @users.each do |user| %>
-    <% if user.id != current_user.id%>
+    <% count = 0 %>
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id%>
+        <% if count ==0 %>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        <% end %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to "View Their Fuel Logs", fuel_logs_path(id: user.id), class: "btn btn-primary"  %></td>
+        </tr>
+        <% count +=1 %>
+      <% end %>
+    <% end %>
+    <% if count == 0%>
       <tr>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= link_to "View Their Fuel Logs", fuel_logs_path(id: user.id), class: "btn btn-primary"  %></td>
+        <th> No results found!</th>
       </tr>
     <% end %>
-   <% end %>
   </tbody>
 </table>
