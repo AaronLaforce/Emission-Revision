@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :cars
     has_many :fuel_logs
     has_many :forum_posts
+    has_many :forum_replies
     # emails are saved in lowercase
     before_save { self.email = email.downcase }
     validates :name, presence: true,uniqueness: true

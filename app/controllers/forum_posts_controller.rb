@@ -17,6 +17,8 @@ class ForumPostsController < ApplicationController
 
   def index
     @forum_posts = ForumPost.all
+    @forum_replies = ForumReply.all
+    forum_post_id = forum_post.id
   end
 
   private

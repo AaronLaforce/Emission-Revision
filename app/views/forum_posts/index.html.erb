@@ -12,6 +12,18 @@
     <tr>
       <td> posted by <%= User.where(id: post.user_id).pluck(:name).join %> at <%= post.created_at %></td>
     </tr>
+  <% @forum_replies.each do |reply| %>
+    <% if post.id == reply.forum_post_id%>
+      <tr>
+        <td></td>
+        <td><%= reply.content %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>posted by <%= User.where(id: reply.user_id).pluck(:name).join %> at <%= reply.created_at %></td>
+      </tr>
+    <% end %>
+  <% end %>
   </table>
 <% end %>
 <h4 class="spacer"><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></h4>
