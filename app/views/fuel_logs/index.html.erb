@@ -47,6 +47,11 @@
               <td><%= fuel_log.gasprice %></td>
               <td><%= fuel_log.price %></td>
               <td><%= fuel_log.mileage %></td>
+              <td>
+                <% if fuel_log.user_id == current_user.id%>
+                  <%= link_to "Delete Fuel Log",'/delete_fuel_log/'+fuel_log.id.to_s,method: :get, class:"btn btn-primary", data: {confirm: "Are you sure you want to delete this log?"}%>
+                <% end %>          
+              </td>
               <%# calculations%>
               <% if count == 0%>
                 <% first_distance = fuel_log.mileage.to_f%>

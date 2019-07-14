@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-    has_many :cars
-    has_many :fuel_logs
-    has_many :forum_posts
-    has_many :forum_replies
+    has_many :cars, :dependent=>:destroy
+    has_many :fuel_logs, :dependent => :destroy
+    has_many :forum_posts , :dependent=> :destroy
+    has_many :forum_replies, :dependent => :destroy
     # emails are saved in lowercase
     before_save { self.email = email.downcase }
     validates :name, presence: true,uniqueness: true

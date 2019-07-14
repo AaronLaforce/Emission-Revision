@@ -21,6 +21,11 @@ class ForumRepliesController < ForumPostsController
   def index
     @forum_replies = ForumReply.all
   end
+  
+  def destroy
+    ForumReply.destroy(params[:id])
+    redirect_to forum_posts_path
+  end
 
   private
     def reply_params

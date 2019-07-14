@@ -10,7 +10,11 @@
       <td> <%= post.content %></td>
     </tr>
     <tr class="forum-post">
-      <td class="time-stamper"> posted by <strong><%= User.where(id: post.user_id).pluck(:name).join %></strong> at <%= post.created_at %></td>
+      <td class="time-stamper"> posted by <strong><%= User.where(id: post.user_id).pluck(:name).join %></strong> at <%= post.created_at %>
+        <% if post.user_id == current_user.id%>
+          <%= link_to "Delete",'/delete_forum_post/'+post.id.to_s,method: :get, class:"btn btn-primary left-indent", data: {confirm: "Are you sure you want to delete your post?"}%>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td><%# spacing do not remove%></td>
@@ -24,7 +28,12 @@
           <td><%= reply.content %></td>
         </tr>
         <tr class="forum-reply">
-          <td class="time-stamper">reply posted by <strong><%= User.where(id: reply.user_id).pluck(:name).join %></strong> at <%= reply.created_at %></td>
+          <td class="time-stamper">
+            reply posted by <strong><%= User.where(id: reply.user_id).pluck(:name).join %></strong> at <%= reply.created_at %>
+            <% if reply.user_id == current_user.id%>
+              <%= link_to "Delete",'/delete_forum_reply/'+reply.id.to_s,method: :get, class:"btn btn-primary left-indent", data: {confirm: "Are you sure you want to delete your reply?"}%>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     <% end %>
@@ -39,4 +48,9 @@
     </tr>
   </table>
 <% end %>
-<h4 class="spacer"><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></h4>
+
+<table class="spacer forums">
+  <tr class="forum-post">
+    <td><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></td>
+  </tr>
+</table>

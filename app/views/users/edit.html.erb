@@ -1,0 +1,27 @@
+<title>Change User Settings</title>
+
+<h2> Change User Settings </h2>
+
+<div class="row mini-spacer">
+  <div class= "col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :name , "You may change your username, but it must not already be taken"%>
+      <%= f.text_field :name %>
+      <%= display_error(:name) %>
+
+      <%= f.label :email ,"You may change your email"%>
+      <%= f.email_field :email%>
+      <%= display_error(:email) %>
+
+      <%= f.label :password,"You may choose to change your password, otherwise, enter the old password" %>
+      <%= f.password_field :password %>
+      <%= display_error(:password) %>
+
+      <%= f.label :password_confirmation, "Confirmation of new/old password" %>
+      <%= f.password_field :password_confirmation %>
+      <%= display_error(:password_confirmation) %>
+
+      <%= f.submit "Update Account Info", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
     belongs_to :user
-    has_many :fuel_logs
+    has_many :fuel_logs , :dependent=> :destroy
     validates :year, presence: true 
     validates :make, presence: true 
     validates :model, presence: true

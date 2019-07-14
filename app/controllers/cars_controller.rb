@@ -19,6 +19,11 @@ class CarsController < ApplicationController
     @cars = Car.where(user_id: current_user.id)
   end
 
+  def destroy
+    Car.destroy(params[:id])
+    redirect_to cars_path
+  end 
+
   private
     def car_params
       params.permit(:year, :make, :model, :car_name, :user_id)

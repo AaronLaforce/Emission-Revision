@@ -1,1 +1,9 @@
-<meta http-equiv="refresh" content="0; URL='/signup'" />
+<title> User Settings</title>
+
+<!-- debug <h2> User ID: <%= current_user.id%></h2> -->
+
+<h2> Username: <%= User.where(id: current_user.id).pluck(:name).join%></h2>
+
+<h2> Email: <%= User.where(id: current_user.id).pluck(:email).join%></h2>
+
+<%= link_to "Change User Settings", edit_user_path(current_user), :class=>'btn btn-primary btn-lg' %>

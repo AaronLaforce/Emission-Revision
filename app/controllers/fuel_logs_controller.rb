@@ -11,7 +11,7 @@ class FuelLogsController < ApplicationController
         @fuel_log.user_id = current_user.id
         if @fuel_log.save
           flash[:success] = "Successfully added new fuel log!"
-          redirect_to fuel_logs_path
+          redirect_to fuel_logs_path+'/'+current_user.id.to_s
         else 
           flash.now[:danger] = "Failed to add fuel log"
           render :new
@@ -28,6 +28,11 @@ class FuelLogsController < ApplicationController
         @cars = Car.where(user_id: id)
       end
     
+      def destroy
+        FuelLog.destroy(params[:id])
+        redirect_to fuel_logs_path+'/'+current_user.id.to_s
+      end
+
       private
         def fuel_log_params
           params.require(:fuel_log).permit(:fueltype, :gasprice, :price, :mileage, :id, :user_id)

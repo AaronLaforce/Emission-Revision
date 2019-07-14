@@ -27,6 +27,7 @@
               <li class="nav-item"><%= link_to "My Fuel Logs",  fuel_logs_path(id: current_user.id), :class=>"nav-entry"%>
               <li class="nav-item"><%= link_to "My Cars", cars_path , :class=>"nav-entry"%></li> 
               <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>
+              <li class="nav-item"><%= link_to "Account Management", user_details_path(current_user), :class=>"nav-entry"%></li>
               <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete , :class=>"nav-entry"%></li>
             <% else %> 
               <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>

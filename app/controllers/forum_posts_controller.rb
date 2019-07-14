@@ -20,6 +20,11 @@ class ForumPostsController < ApplicationController
     @forum_replies = ForumReply.all
   end
 
+  def destroy
+    ForumPost.destroy(params[:id])
+    redirect_to forum_posts_path
+  end
+
   private
     def forum_params
       params.require(:forum_post).permit(:topic, :content, :user_id)
