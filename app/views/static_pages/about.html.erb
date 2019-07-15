@@ -1,15 +1,4 @@
 <title> About Us</title>
-<script>
-  var copyContact;
-
-  copyContact = function() {
-    var copyEmail;
-    copyEmail = document.getElementById('c-email');
-    copyEmail.select();
-    document.execCommand('copy');
-    alert('Email added to clipboard');
-  };
-</script>
 <body>
   <h3> About Emission Revision </h3>
   <h4 class="mini-spacer">Emission Revision is an environmental impact tracker that allows the user to monitor and track
@@ -25,11 +14,10 @@
   </h4>
   <h4> Emission Revision is a web application built on the Rails framework and is only intended for educational purposes.
   Should you have any questions or concerns, please take a look at our Terms of Service and Privacy Policy below. If you still
-  have questions or concerns or feedback then please contact Emission Revision Support by clicking the email below.
+  have questions or concerns or feedback then please contact Emission Revision Support by using the email below.
   </h4>
   <h3 class="mini-spacer">Contact Us</h3>
   <h4 class="mini-spacer"><strong>Emission Revision</strong></h4>
 
-  <h4 class="email-pointer"><button onclick="copyContact()"><input type="text" value="emission-revision@protonmail.com" 
-      id="c-email" readonly class="hidden">Email us at emission-revision@protonmail.com</button></h4>
+  <h4 class="mini-spacer">Email us at emission-revision@protonmail.com</h4>
 </body> 
