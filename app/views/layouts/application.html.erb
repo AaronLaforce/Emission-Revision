@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-fixed-top bg-green navbar-dark">
         <a class="navbar-brand">
-          <%= link_to image_tag('logo.png', width:"400"), root_path, id: "logo" %>
+          <%= link_to image_tag('logo.png', width:"400"), root_path, id: "logo" ,class: "logo"%>
         </a>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
@@ -25,7 +25,7 @@
               </li>
           <% else %>
             <li class="nav-item">
-                <%= link_to "Log In", login_path, :class=>"nav-entry" %>
+                <%= link_to "Login", login_path, :class=>"nav-entry" %>
               </li>
           <% end %>
         </ul>
@@ -60,7 +60,7 @@
         <%#= debug(params) if Rails.env.development? %>
       </div>
     </div>
-    <footer class="footer-spacer">
+    <footer class="footer-spacer spacer-left">
       <table class="bot">
         <tr>
           <td class="left"><h5><a class="clickable" href="/terms_read">Terms of Service</a></h5></td>

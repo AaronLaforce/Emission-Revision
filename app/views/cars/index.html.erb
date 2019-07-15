@@ -2,7 +2,8 @@
  <meta name="turbolinks-visit-control" content="reload">
 </head>
 <title>My Cars</title>
-<table class="container">
+
+<table class="container car-fix">
   <% count = 0%>
   <tbody>
     <% @cars.each do |car| %>
@@ -12,7 +13,7 @@
           <th>Make</th>
           <th>Model</th>
           <th>Name</th>
-          <th colspan="2"></th>
+          <th></th>
         </tr>
       <% end %>
       <tr>
