@@ -13,13 +13,26 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-fixed-top bg-green navbar-dark">
+        <a class="navbar-brand">
+          <%= link_to image_tag('logo.png', width:"400"), root_path, id: "logo" %>
+        </a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li class="nav-item">
+                <%= link_to "Log Out", logout_path, method: :delete , :class=>"nav-entry"%>
+              </li>
+          <% else %>
+            <li class="nav-item">
+                <%= link_to "Log In", login_path, :class=>"nav-entry" %>
+              </li>
+          <% end %>
+        </ul>
+    </nav>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-      <%= link_to image_tag('logo.png', size:"800x100"), root_path, id: "logo", :class=>'banner'%>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
+    <nav>
+          <ul class="nav navbar-vertical ">
             <li class="nav-item"><%= link_to "Home",  root_path , :class=>"nav-entry"%></li>
             <% if logged_in? %>
               <li class="nav-item"><%= link_to "Forums", forum_posts_path, :class=>"nav-entry"%>
@@ -28,26 +41,23 @@
               <li class="nav-item"><%= link_to "My Cars", cars_path , :class=>"nav-entry"%></li> 
               <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>
               <li class="nav-item"><%= link_to "Account Management", user_details_path(current_user), :class=>"nav-entry"%></li>
-              <li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete , :class=>"nav-entry"%></li>
             <% else %> 
               <li class="nav-item"><%= link_to "About Us", about_path,:class=>"nav-entry"%></li>
-              <li class="nav-item"><%= link_to "Log In", login_path, :class=>"nav-entry" %></li>
             <% end %>  
           </ul>
-        </nav>
-      </div>
-    </header>
-    <div class="banner-spacer">
-      <div class="greetings">
-        <% if logged_in? %>
-          <p>Welcome, <%= User.where(id: current_user.id).pluck(:name).join%>!</p>
+    </nav>
+    <div class="spacer-left">
+      <div class="banner-spacer">
+        <div class="greetings">
+          <% if logged_in? %>
+            <p>Welcome, <%= User.where(id: current_user.id).pluck(:name).join%>!</p>
+          <% end %>
+        </div>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
-      </div>
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
-      <%#= debug(params) if Rails.env.development? %>
+        <%= yield %>
+        <%#= debug(params) if Rails.env.development? %>
       </div>
     </div>
     <footer class="footer-spacer">
