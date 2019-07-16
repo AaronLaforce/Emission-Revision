@@ -30,7 +30,8 @@ textarea {
 
 .background-box{
   width: auto;
-  height: 500px auto;
+  height: auto;
+  min-height: 800px;
   background: #FFFFFF;
   padding: 30px;
   box-shadow: 0px 1px 10px #808080;
