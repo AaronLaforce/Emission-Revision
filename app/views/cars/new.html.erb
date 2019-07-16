@@ -22,38 +22,38 @@
 </head>
 
 <title>Add a New Car</title>
-<div class="container">
-  <h1>Add a New Car</h1>
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <%= form_for(@car, url: new_car_path) do |f| %>
-        <div class="field">
-          <%= f.label :year %>
-          <%= f.select :year,{},{}, {name: "year",id: "car-years" ,:class=>'form-control'} %>
-          <%= display_car_error(:year) %>
-        </div>
-        <div class="field">
-          <%= f.label :make %>
-          <%= f.select :make,{}, {},{name:"make", id: "car-makes",:class=>'form-control'}  %>
-          <%= display_car_error(:make) %>
-          <!-- DO NOT DELETE: kept for legacy purposes <%= f.text_field :make, class: 'form-control' %>-->
-        </div>
-        <div class="field">
-          <%= f.label :model %>
-          <%= f.select :model,{}, {}, {name:"model" ,id: "car-models",:class=>'form-control' } %>
-          <%= display_car_error(:model) %>
-        </div>
-        <div class="field">
-          <%= f.label :car_name, "Car Name" %>
-          <%= f.text_field :car_name, name:"car_name", placeholder: "Give your car a name to make it unique!",:class=>'form-control' %>
-          <%= display_car_error(:car_name) %>
-        </div>
-        <div class="actions">
-          <%= f.submit "Add Car", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
- 
+<div class="background-box">
+  <div class="container">
+    <h1>Add a New Car</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@car, url: new_car_path) do |f| %>
+          <div class="field">
+            <%= f.label :year %>
+            <%= f.select :year,{},{}, {name: "year",id: "car-years" ,:class=>'form-control'} %>
+            <%= display_car_error(:year) %>
+          </div>
+          <div class="field">
+            <%= f.label :make %>
+            <%= f.select :make,{}, {},{name:"make", id: "car-makes",:class=>'form-control'}  %>
+            <%= display_car_error(:make) %>
+            <!-- DO NOT DELETE: kept for legacy purposes <%= f.text_field :make, class: 'form-control' %>-->
+          </div>
+          <div class="field">
+            <%= f.label :model %>
+            <%= f.select :model,{}, {}, {name:"model" ,id: "car-models",:class=>'form-control' } %>
+            <%= display_car_error(:model) %>
+          </div>
+          <div class="field">
+            <%= f.label :car_name, "Car Name" %>
+            <%= f.text_field :car_name, name:"car_name", placeholder: "Give your car a name to make it unique!",:class=>'form-control' %>
+            <%= display_car_error(:car_name) %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Add Car", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+   </div>
   </div>
 </div>

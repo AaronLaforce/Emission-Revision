@@ -2,50 +2,51 @@
  <meta name="turbolinks-visit-control" content="reload">
 </head>
 <title>My Cars</title>
-
-<table class="container car-fix">
-  <% count = 0%>
-  <tbody>
-    <% @cars.each do |car| %>
+<div class="background-box">
+  <table class="container car-fix">
+    <% count = 0%>
+    <tbody>
+      <% @cars.each do |car| %>
+        <% if count == 0%>
+          <tr>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        <% end %>
+        <tr>
+            <td><%= car.year %></td>
+            <td><%= car.make %></td>
+            <td><%= car.model %></td>
+            <td><%= car.car_name %></td>
+            <td>
+              <%= link_to "Add a New Fuel Log", '/new_fuel_log/' + car.id.to_s, class: "btn btn-primary"  %>
+              <% if car.user_id == current_user.id %>
+                <%= link_to "Delete Car", '/delete_car/'+car.id.to_s,method: :get, class:"btn btn-primary", data: {confirm: "Are you sure you want to delete this car?"}%>
+              <%end %>
+            </td>
+        </tr>
+        <% count +=1%>
+      <% end %>
       <% if count == 0%>
         <tr>
-          <th>Year</th>
-          <th>Make</th>
-          <th>Model</th>
-          <th>Name</th>
-          <th></th>
+          <td><h3> You have no saved cars. Please click on the button to add a new car!</h3></td>
+          <td><a class="btn btn-lg btn-primary mini-spacer" href="/new_car" target="_self">Add a New Car!</a></td>
+          <td><!-- spacers do not delete --></td>
+          <td><!-- spacers do not delete --></td>
+          <td><!-- spacers do not delete --></td>
         </tr>
-      <% end %>
-      <tr>
-          <td><%= car.year %></td>
-          <td><%= car.make %></td>
-          <td><%= car.model %></td>
-          <td><%= car.car_name %></td>
-          <td>
-            <%= link_to "Add a New Fuel Log", '/new_fuel_log/' + car.id.to_s, class: "btn btn-primary"  %>
-            <% if car.user_id == current_user.id %>
-              <%= link_to "Delete Car", '/delete_car/'+car.id.to_s,method: :get, class:"btn btn-primary", data: {confirm: "Are you sure you want to delete this car?"}%>
-            <%end %>
-          </td>
-      </tr>
-      <% count +=1%>
-    <% end %>
-    <% if count == 0%>
-      <tr>
-        <td><h3> You have no saved cars. Please click on the button to add a new car!</h3></td>
-        <td><a class="btn btn-lg btn-primary mini-spacer" href="/new_car" target="_self">Add a New Car!</a></td>
-        <td><!-- spacers do not delete --></td>
-        <td><!-- spacers do not delete --></td>
-        <td><!-- spacers do not delete --></td>
-      </tr>
-    <% else %>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><a class="btn btn-primary mini-spacer" href="/new_car" target="_self">Add a New Car!</a></td>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
+      <% else %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><a class="btn btn-primary mini-spacer" href="/new_car" target="_self">Add a New Car!</a></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

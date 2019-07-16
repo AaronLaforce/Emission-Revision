@@ -1,18 +1,20 @@
 <title>Emission Revision</title>
-<div class="center jumbotron">
-  <h1>Welcome to Emission Revision</h1>
-
-  <h2>
-    Start tracking your carbon footprint for free today and explore 
-    new sustainable alternatives to your daily commute!
-  </h2>
-  <% if logged_in? %>
-    <div class="mini-spacer">
-      <%= link_to "Browse the Forums!",forum_posts_path, class:"btn btn-lg btn-primary"%>
-      <%= link_to "Search for Users!",search_path, class:"btn btn-lg btn-primary"%>
-      <a class="btn btn-lg btn-primary" href="/new_car" target="_self">Add a New Car!</a>
-    </div>
-  <% else %>  
-    <%= link_to "Sign Up Now!", terms_path, class: "btn btn-lg btn-primary" %>
-  <% end %>  
+<div class="background-box">
+  <div class="center jumbotron">
+    <h1>Welcome to Emission Revision</h1>
+  
+    <h2>
+      Start tracking your carbon footprint for free today and explore 
+      new sustainable alternatives to your daily commute!
+    </h2>
+    <% if logged_in? %>
+      <div class="mini-spacer">
+        <%= link_to "Browse the Forums!",forum_posts_path, class:"btn btn-lg btn-primary"%>
+        <%= link_to "Search for Users!",search_path, class:"btn btn-lg btn-primary"%>
+        <a class="btn btn-lg btn-primary" href="/new_car" target="_self">Add a New Car!</a>
+      </div>
+    <% else %>  
+      <%= link_to "Sign Up Now!", terms_path, class: "btn btn-lg btn-primary" %>
+    <% end %>  
+  </div>
 </div>

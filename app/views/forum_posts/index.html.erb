@@ -1,56 +1,58 @@
 <title>Forums</title>
-<h2>Forums</h2>
-
-<% @forum_posts.each do |post|%>
-  <table class="container forums mini-spacer">
-    <tr class="forum-post">
-      <td class="forum-topic"><h4><strong><%= post.topic %></strong></h4></td>
-    </tr>
-    <tr class="forum-post">
-      <td> <%= post.content %></td>
-    </tr>
-    <tr class="forum-post">
-      <td class="time-stamper"> posted by <strong><%= User.where(id: post.user_id).pluck(:name).join %></strong> at <%= post.created_at %>
-        <% if post.user_id == current_user.id%>
-          <%= link_to "Delete",'/delete_forum_post/'+post.id.to_s,method: :get, class:"btn btn-primary left-indent", data: {confirm: "Are you sure you want to delete your post?"}%>
+<div class="background-box">
+  <h2>Forums</h2>
+  
+  <% @forum_posts.each do |post|%>
+    <table class="container forums mini-spacer">
+      <tr class="forum-post">
+        <td class="forum-topic"><h4><strong><%= post.topic %></strong></h4></td>
+      </tr>
+      <tr class="forum-post">
+        <td> <%= post.content %></td>
+      </tr>
+      <tr class="forum-post">
+        <td class="time-stamper"> posted by <strong><%= User.where(id: post.user_id).pluck(:name).join %></strong> at <%= post.created_at %>
+          <% if post.user_id == current_user.id%>
+            <%= link_to "Delete",'/delete_forum_post/'+post.id.to_s,method: :get, class:"btn btn-primary left-indent", data: {confirm: "Are you sure you want to delete your post?"}%>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%# spacing do not remove%></td>
+      </tr>
+      <% @forum_replies.each do |reply| %>
+        <% if post.id == reply.forum_post_id%>
+          <tr class="forum-reply">
+            <td><%# spacing do not remove%></td>
+          </tr>
+          <tr class="forum-reply">
+            <td><%= reply.content %></td>
+          </tr>
+          <tr class="forum-reply">
+            <td class="time-stamper">
+              reply posted by <strong><%= User.where(id: reply.user_id).pluck(:name).join %></strong> at <%= reply.created_at %>
+              <% if reply.user_id == current_user.id%>
+                <%= link_to "Delete",'/delete_forum_reply/'+reply.id.to_s,method: :get, class:"btn btn-primary left-indent", data: {confirm: "Are you sure you want to delete your reply?"}%>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td><%# spacing do not remove%></td>
-    </tr>
-    <% @forum_replies.each do |reply| %>
-      <% if post.id == reply.forum_post_id%>
-        <tr class="forum-reply">
-          <td><%# spacing do not remove%></td>
-        </tr>
-        <tr class="forum-reply">
-          <td><%= reply.content %></td>
-        </tr>
-        <tr class="forum-reply">
-          <td class="time-stamper">
-            reply posted by <strong><%= User.where(id: reply.user_id).pluck(:name).join %></strong> at <%= reply.created_at %>
-            <% if reply.user_id == current_user.id%>
-              <%= link_to "Delete",'/delete_forum_reply/'+reply.id.to_s,method: :get, class:"btn btn-primary left-indent", data: {confirm: "Are you sure you want to delete your reply?"}%>
-            <% end %>
-          </td>
-        </tr>
       <% end %>
-    <% end %>
-    <tr class="forum-reply">
-      <td><%# spacing do not remove%></td>
-    </tr>
-    <tr class="forum-reply-link">
-      <td><%= link_to "Reply to this post", new_forum_reply_path(id: post.id), class: "btn btn-primary" %></td>
-    </tr>
-    <tr class="forum-reply">
-      <td><%# spacing do not remove%></td>
+      <tr class="forum-reply">
+        <td><%# spacing do not remove%></td>
+      </tr>
+      <tr class="forum-reply-link">
+        <td><%= link_to "Reply to this post", new_forum_reply_path(id: post.id), class: "btn btn-primary" %></td>
+      </tr>
+      <tr class="forum-reply">
+        <td><%# spacing do not remove%></td>
+      </tr>
+    </table>
+  <% end %>
+  
+  <table class="spacer forums">
+    <tr class="forum-post">
+      <td><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></td>
     </tr>
   </table>
-<% end %>
-
-<table class="spacer forums">
-  <tr class="forum-post">
-    <td><%= link_to "Add a new post", new_forum_post_path, :class=>"btn btn-primary"%></td>
-  </tr>
-</table>
+</div>

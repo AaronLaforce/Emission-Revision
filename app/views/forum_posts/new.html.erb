@@ -1,22 +1,24 @@
 <title>Create a New Forum Post</title>
-<div class="container">
-  <h2>Post to the forum boards!</h2>
-
-  <div class="row spacer">
-    <div class="col-md-6 col-md-offset-3">
-      <%= form_for(@forum_post, url: new_forum_post_path) do |f| %>
-        <div class="field">
-          <%= f.label :topic, "Topic" %>
-          <%= f.text_field :topic, :placeholder=>'Enter the topic of the post' ,:class=>'form-control' %>
-          <%= display_forum_post_error(:topic) %>
-        </div>
-        <div class="field">
-          <%= f.label :content, "Details" %>
-          <%= f.text_area :content, :placeholder=>'Enter the details of the post' ,:class=>'form-control',:cols=>10,:rows=>10 %>
-          <%= display_forum_post_error(:content) %>
-        </div>
-        <%= f.submit "Post to forums", class: "btn btn-primary" %>
-      <% end %>
+<div class="background-box">
+  <div class="container">
+    <h2>Post to the forum boards!</h2>
+  
+    <div class="row spacer">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@forum_post, url: new_forum_post_path) do |f| %>
+          <div class="field">
+            <%= f.label :topic, "Topic" %>
+            <%= f.text_field :topic, :placeholder=>'Enter the topic of the post' ,:class=>'form-control' %>
+            <%= display_forum_post_error(:topic) %>
+          </div>
+          <div class="field">
+            <%= f.label :content, "Details" %>
+            <%= f.text_area :content, :placeholder=>'Enter the details of the post' ,:class=>'form-control',:cols=>10,:rows=>10 %>
+            <%= display_forum_post_error(:content) %>
+          </div>
+          <%= f.submit "Post to forums", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

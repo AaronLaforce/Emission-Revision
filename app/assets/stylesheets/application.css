@@ -14,7 +14,7 @@
  *= require_self
  */
  
- .banner:hover{
+.banner:hover{
     background-color: rgba(0,0,0,0);
 }
 
@@ -38,6 +38,9 @@
     text-align: right !important;
 }
 
+body {
+    background-color: rgb(235, 235, 235) !important;
+}
 
 /* test
 
