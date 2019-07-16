@@ -22,8 +22,8 @@
             <%= display_log_error(:price) %>
           </div>
           <div class="field">
-            <%= f.label :mileage %>
-            <%= f.text_field :mileage ,:placeholder=>'Please enter the mileage at the time of fill up in kilometers',:class=>'form-control'%>
+            <%= f.label :mileage , "Odometer" %>
+            <%= f.text_field :mileage ,:placeholder=>'Please enter the current odometer at the time of fill up in kilometers',:class=>'form-control'%>
             <%= display_log_error(:mileage) %>
           </div>
           <div class="field">
