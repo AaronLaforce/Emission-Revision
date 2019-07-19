@@ -19,6 +19,7 @@
         <% first_distance = 0.0%>
         <% distance = 0.0%>
         <% litres = 0.0%>
+        <% total_litres = 0.0 %>
           <% @fuel_logs.each do |fuel_log| %>
             <tr>
               <% if fuel_log.car_id == car.id%>
@@ -55,8 +56,10 @@
                 <%# calculations%>
                 <% if count == 0%>
                   <% first_distance = fuel_log.mileage.to_f%>
+                  <% total_litres+= (fuel_log.price.to_f / fuel_log.gasprice.to_f)*100%>
                 <% else%>
                   <% litres+= (fuel_log.price.to_f / fuel_log.gasprice.to_f)*100%>
+                  <% total_litres+= (fuel_log.price.to_f / fuel_log.gasprice.to_f)*100%>
                   <% distance=fuel_log.mileage.to_f%>
                 <% end %>
                 <% spent += fuel_log.price.to_f %>
@@ -82,7 +85,7 @@
               <%# precalculation%>
               <% distance_travelled = distance - first_distance%>
               <td>$ <%= spent.round(3) %></td>
-              <td><%= litres.round(3) %> L</td>
+              <td><%= total_litres.round(3) %> L</td>
               <td><%= distance_travelled.round(3)%> km</td>
               <td><%= ((litres/distance_travelled)*100).round(3)%> L/100km</td>
               <td><strong>32</strong> g CO<sub>2</sub> e/km</td>
