@@ -1,18 +1,21 @@
-Emission Revision (working title) is an environmental impact tracker that allows the user to monitor their gas emissions, and thus part of their carbon footprint. The app will have the user create an account in order for their information to be stored and tracked. The user when refueling will input the amount of gas (in litres) they put in, the octane of the gas, and the distance travelled since last refill. This information will be stored server side. The app will calculate the average gas usage per day as well as over the month. All analytics will be stored server side and may be used in the future for things such as scientific research, marketing research, etc. Allows for the user to input the amount of money spent on the gas. This information will then be used to compare the amount of money one could save if they used public transit rather than drive. 
+Emission Revision is an environmental impact tracker that allows the user to monitor their gas emissions, and thus part of their carbon footprint. Check out a [live version](https://emissionrevision.herokuapp.com) of the app hosted on heroku. The app will have the user create an account in order for their information to be stored and tracked. Once logged in a new car can be added. ![Alt text](/screenshots/screen1.jpg?raw=true "add a new car")
+The user when refueling will input the gas price, price paid, and the value of the odometer.
+![Alt text](/screenshots/screen2.jpg?raw=true "add a new fuel log")
+Once two fuel logs have been added your emissions can be checked via the My Fuel Logs page.
+![Alt text](/screenshots/screen3.jpg?raw=true "my fuel logs")
 
-Features include:
-Calculating one’s average gas consumption,
-Compare gas consumptions with others that live near the user,
-Promote eco friendly events and options,
-Track public transit usage (potentially connect to compass card).
-
-
-
-
+To run the application locally first you must have version 2.6.3 of ruby installed. Once that's done simply run: 
+```
+bundle install
+```
+followed by:
+```
+rails server
+```
 	
-Team’s Info:
-Aaron Laforce - 301342250,
-Aditya Rajvanshi - 301349754,
-Brandon Chan - 301219554,
-Ryan Dale - 301321647,
-Sage Clouston - 301346228
+Team members:
+Aaron Laforce,
+Aditya Rajvanshi,
+Brandon Chan,
+Ryan Dale,
+Sage Clouston
